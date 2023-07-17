@@ -12,7 +12,7 @@
     <form action="{{ route('sonuc') }}" method="post">
         @csrf
 
-        <label>Username</label><br>
+        <label>Usernameusername</label><br>
         <input type="text" name="Username"><br><br>
 
         <label>Password</label><br>
