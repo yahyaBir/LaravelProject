@@ -9,14 +9,14 @@
 </head>
 <body>
 
-    <form action="{{ route('sonuc') }}" method="post">
+    <form action="{{ route('output') }}" method="POST">
         @csrf
 
-        <label>Usernameusername</label><br>
-        <input type="text" name="Username"><br><br>
+        <label>Username</label><br>
+        <input type="text" name="username-form" required><br><br>
 
         <label>Password</label><br>
-        <input type="password" name="Password"><br><br>
+        <input type="password" name="password-form" required><br><br>
 
         <input type="submit" name="login" value="Log In">
 

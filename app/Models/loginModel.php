@@ -9,5 +9,6 @@ class loginModel extends Model
 {
     use HasFactory;
     protected $table='UserTable';
-    protected $fillable=["Username","Password",];
+    protected $fillable = ['Username','Password',];
 }
+

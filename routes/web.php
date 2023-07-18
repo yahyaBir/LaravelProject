@@ -8,8 +8,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', [LoginController::class,'loginMenu']);
-Route::post('/login/output', [LoginController::class,'sonuc'])->name('');
+//LoginController rotaları
+Route::get('/login', [LoginController::class,'loginView']);
+Route::post('/login/output', [LoginController::class,'login'])->name('output');
 
 
-
+Route::get('/add', [LoginController::class,'add']);
