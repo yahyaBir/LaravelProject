@@ -14,7 +14,7 @@ class LoginController extends Controller
     //view cagirma
     public function loginView()
     {
-        return view("loginForm");
+        return view("loginMenu");
     }
 
 
@@ -28,7 +28,7 @@ class LoginController extends Controller
 
         if ($user && $user->Password === $password)
         {
-            echo "login success";
+            return redirect('/main-menu');
         }
         else
         {

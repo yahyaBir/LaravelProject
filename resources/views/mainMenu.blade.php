@@ -8,10 +8,35 @@
     <title>Main Menu</title>
 </head>
 <body>
-    <ul>
-        <li><a href="#">Admin User Management</a></li>
-        <li><a href="#">Category Management</a></li>
-        <li><a href="#">Product Management</a></li>
-    </ul>
+
+    <div>
+        <h3>Admin User Management</h3>
+        <ul>
+            <li><a href={{'/list-user'}}>User Listing</a></li>
+            <li><a href={{'/edit-user'}}>User Editing</a></li>
+            <li><a href={{'/add-user'}} >Add User</a></li>
+            <li><a href={{'/delete-user'}}>Delete User</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <h3>Category Management</h3>
+        <ul>
+            <li><a href={{'/list-category'}}>Category Listing</a></li>
+            <li><a href={{'/edit-category'}}>Category Editing</a></li>
+            <li><a href={{'/add-category'}}>Add Category</a></li>
+            <li><a href={{'/delete-category'}}>Delete Category</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <h3>Product Management</h3>
+        <ul>
+            <li><a href={{'/list-product'}}>Product Listing</a></li>
+            <li><a href={{'/add-product'}}>Add Product</a></li>
+            <li><a href={{'/delete-product'}}>Delete Product</a></li>
+        </ul>
+    </div>
+
 </body>
 </html>

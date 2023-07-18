@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class LoginMigraiton extends Migration
+class ProductMigration extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class LoginMigraiton extends Migration
      */
     public function up()
     {
-        Schema::create('UserTable', function (Blueprint $table) {
+        Schema::create('ProductTable', function (Blueprint $table) {
             $table->id();
-            $table->string('Username');
-            $table->string('UserTitle');
-            $table->string('Password');
+            $table->String('ProductTitle');
+            $table->String('ProductCategoryID');
+            $table->String('Barcode');
+            $table->String('ProductStatus');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class LoginMigraiton extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('UserTable');
+        Schema::dropIfExists('ProductTable');
     }
 }

@@ -20,7 +20,6 @@
 
         <input type="submit" name="login" value="Log In">
 
-
     </form>
 </body>
 </html>
