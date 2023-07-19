@@ -24,6 +24,7 @@ Route::get('/delete-user', [UserController::class,'deleteUserView']);
 Route::get('/edit-user', [UserController::class,'editUserView']);
 Route::get('/list-user', [UserController::class,'listUserView']);
 Route::post('/user-added', [UserController::class,'addUser'])->name('userAdded');
+Route::get('/list-user', [UserController::class, 'getUsers'])->name('listUser');
 //Route::post('/user-filter', [UserController::class,'userFilter'])->name('userfilted');
 
 

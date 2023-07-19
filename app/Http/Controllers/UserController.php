@@ -49,5 +49,14 @@ class UserController extends Controller
             "UserTitle"=>$usertitle_add,
             "Password"=>$password_add
         ]);
+        return redirect('/main-menu');
+    }
+
+    public function getUsers()
+    {
+        $userCollection = loginModel::all();
+        //$userCollection = DB::table('UserTable')->get();
+
+        return view ('listUser', array('userCollection' => $userCollection));
     }
 }

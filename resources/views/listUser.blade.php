@@ -8,18 +8,23 @@
     <title>User List</title>
 </head>
 <body>
-<?php
-
-
-
-
-
-
-
-?>
-
-
-
-
+    <table>
+        <thead>
+            <tr>
+                <th>Username<br><br></th>
+                <th>UserTitle<br><br></th>
+                <th>Password<br><br></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($userCollection as $usercollecions)
+                <tr>
+                    <th scope="col"><input type="checkbox" name="pick">{{ $usercollecions->Username }}</th>
+                    <th scope="col">{{ $usercollecions->UserTitle }}</th>
+                    <th scope="col">{{ $usercollecions->Password }}</th>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
 </body>
 </html>

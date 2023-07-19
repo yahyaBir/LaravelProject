@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Add User Menu</title>
+
 </head>
 <body>
     <form action={{ route('userAdded') }} method="POST">
@@ -28,7 +29,8 @@
         <small style="color: red;">{{ $message }}</small>
         @enderror<br><br>
 
-        <input type="submit" name="register" value="Register">   <input type="submit" name="back" value="Back to Main Menu">
+        <input type="submit" name="register" value="Register"><br><br>
+        <a href={{'/main-menu'}}>Back to Main Menu</a>
     </form>
 </body>
 </html>
