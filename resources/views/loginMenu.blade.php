@@ -8,15 +8,22 @@
     <title>Admin Login Menu</title>
 </head>
 <body>
+    @if($errors->any())
+        <ul>
+        @foreach($errors->all() as $hatalar)
+            <li>{{$hatalar}}</li>
+        @endforeach
+        </ul>
+    @endif
 
     <form action="{{ route('output') }}" method="POST">
         @csrf
 
         <label>Username</label><br>
-        <input type="text" name="username-form" required><br><br>
+        <input type="text" name="username"><br><br>
 
         <label>Password</label><br>
-        <input type="password" name="password-form" required><br><br>
+        <input type="password" name="password"><br><br>
 
         <input type="submit" name="login" value="Log In">
 

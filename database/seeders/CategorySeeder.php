@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class CategoryDatas extends Seeder
+class CategorySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,63 +13,63 @@ class CategoryDatas extends Seeder
      */
     public function run()
     {
-        DB::table('CategoryTable')->insert([
+        \DB::table('CategoryTable')->insert([
 
             [
-                "CategoryTitle"=>"Shoes",
+                'CategoryTitle'=>"Shoes",
 
-                "CategoryDescription"=>"Shoes are clothing items that people wear in their daily lives to protect,
+                'CategoryDescription'=>"Shoes are clothing items that people wear in their daily lives to protect,
                  support, and complement their style. Shoes come in different styles, materials, and purposes.",
 
-                "Status"=>"active"
+                'Status'=>"active"
 
 
             ],
 
             [
-                "CategoryTitle"=>"Pants",
+                'CategoryTitle'=>"Pants",
 
-                "CategoryDescription"=>"Pants are clothing items that cover and protect the lower body and legs of individuals,
+                'CategoryDescription'=>"Pants are clothing items that cover and protect the lower body and legs of individuals,
                  while also complementing their style. Pants come in various styles, cuts, fabrics, and serve different purposes,
                  showcasing a diversity of options.",
 
-                "Status"=>"active"
+                'Status'=>"active"
 
 
             ],
 
             [
-                "CategoryTitle"=>"Shorts",
+                'CategoryTitle'=>"Shorts",
 
-                "CategoryDescription"=>"Shorts are garments that are worn on the lower body, typically covering the hips and thighs.
+                'CategoryDescription'=>"Shorts are garments that are worn on the lower body, typically covering the hips and thighs.
                  They are characterized by their shorter length compared to trousers or pants. Shorts come in various styles, materials,
                  and designs, catering to different preferences and occasions.",
 
-                "Status"=>"active"
+                'Status'=>"active"
 
 
             ],
 
             [
-                "CategoryTitle"=>"Dresses",
+                'CategoryTitle'=>"Dresses",
 
-                "CategoryDescription"=>"Dresses are garments that cover the upper body and extend down to various lengths,
+                'CategoryDescription'=>"Dresses are garments that cover the upper body and extend down to various lengths,
                  typically reaching below the hips or knees. Dresses are versatile and come in a wide range of styles,
                  fabrics, and designs, catering to different occasions and personal preferences.",
 
-                "Status"=>"active"
+                'Status'=>"active"
 
 
             ],
 
             [
-                "CategoryTitle"=>"Shirts",
+                'CategoryTitle'=>"Shirts",
 
-                "CategoryDescription"=>"Shirts are versatile garments worn on the upper body, typically with sleeves,
+                'CategoryDescription'=>"Shirts are versatile garments worn on the upper body, typically with sleeves,
                  a collar, and buttons down the front. They come in various styles, fabrics, and designs,
                  catering to different purposes and fashion preferences.",
 
-                "Status"=>"active"
+                'Status'=>"active"
 
 
             ],

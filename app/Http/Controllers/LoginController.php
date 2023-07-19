@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\loginModel;
+use Illuminate\Http\RedirectResponse;
 use DB;
 
 
@@ -21,30 +22,22 @@ class LoginController extends Controller
     //Kullanıcının girdigi bilgileri kontrol etme, kontrole gore yonlendirme
     public function login(Request $request)
     {
-        $username = $request->input('username-form');
-        $password = $request->input('password-form');
+        $username = $request->input('username');
+        $password = $request->input('password');
 
         $user = loginModel::where('Username', $username)->first();
 
-        if ($user && $user->Password === $password)
-        {
+        if ($user && $user->Password === $password) {
             return redirect('/main-menu');
+        } else {
+            $request->validate([
+                "username" => "required|min:3",
+                "password" => "required|min:6",
+            ]);
+            return redirect()->back();
         }
-        else
-        {
-             return redirect()->back();
-        }
-    }
-
-
-    //Veritabanina admin bilgilerini ekleme
-    public function add()
-    {
-        DB::table("UserTable")->insert([
-            "Username" => "Serra",
-            "Password" => "123456789"
-        ]);
     }
 }
+
 
 

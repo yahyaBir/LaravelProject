@@ -11,6 +11,7 @@ use App\Http\Controllers\ProductController;
 //LoginController rotalari
 Route::get('/login-menu', [LoginController::class,'loginView']);
 Route::post('/login-menu/output', [LoginController::class,'login'])->name('output');
+//Route::post('/login-menu/errors', [LoginController::class,'loginValidation']);
 
 
 //MenuController rotalari
