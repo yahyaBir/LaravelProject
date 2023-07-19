@@ -8,27 +8,27 @@
     <title>Add User Menu</title>
 </head>
 <body>
-    <form action="#" method="POST">
+    <form action={{ route('userAdded') }} method="POST">
         @csrf
 
         <h2>Add User Menu</h2>
         <label>Username</label><br>
-        <input type="text" name="username-add" required><br><br>
+        <input type="text" name="usernameadd" required>
+        @error('usernameadd')
+        <small style="color: red;">{{ $message }}</small>
+        @enderror<br><br>
+
 
         <label>UserTitle</label><br>
-        <input type="text" name="usertitle-add" required><br><br>
+        <input type="text" name="usertitleadd" required><br><br>
 
         <label>Password</label><br>
-        <input type="password" name="password-add" required><br><br>
+        <input type="password" name="passwordadd" required>
+        @error('passwordadd')
+        <small style="color: red;">{{ $message }}</small>
+        @enderror<br><br>
 
-        <input type="submit" name="register" value="Register"><br><br>
-
-
-
-
+        <input type="submit" name="register" value="Register">   <input type="submit" name="back" value="Back to Main Menu">
     </form>
-
-
-
 </body>
 </html>

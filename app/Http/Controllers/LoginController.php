@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\loginModel;
+use Illuminate\Http\Request;
+use App\Models\userModel;
 use Illuminate\Http\RedirectResponse;
 use DB;
 
