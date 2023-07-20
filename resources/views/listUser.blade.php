@@ -8,23 +8,32 @@
     <title>User List</title>
 </head>
 <body>
+<form action="{{ route ('userDeleted') }}" method="post">
+    @csrf
     <table>
         <thead>
-            <tr>
-                <th>Username<br><br></th>
-                <th>UserTitle<br><br></th>
-                <th>Password<br><br></th>
-            </tr>
+        <tr>
+            <th>Delete<br><br></th>
+            <th>Username<br><br></th>
+            <th>UserTitle<br><br></th>
+            <th>Password<br><br></th>
+        </tr>
         </thead>
         <tbody>
-            @foreach($userCollection as $usercollecions)
-                <tr>
-                    <th scope="col"><input type="checkbox" name="pick">{{ $usercollecions->Username }}</th>
-                    <th scope="col">{{ $usercollecions->UserTitle }}</th>
-                    <th scope="col">{{ $usercollecions->Password }}</th>
-                </tr>
-            @endforeach
+        @foreach($userCollection as $usercollecions)
+            <tr>
+                <td><input type="checkbox" name="deleteSelect[{{$usercollecions->id}}]" value="{{$usercollecions->id}}"></td>
+                <th scope="col">{{ $usercollecions->Username }}</th>
+                <th scope="col">{{ $usercollecions->UserTitle }}</th>
+                <th scope="col">{{ $usercollecions->Password }}</th>
+                <th><a href="{{'/edit-user'}}"><button type="button">Edit</button></a></th>
+                <th><a href="{{'/delete-user'}}"><button type="button">Delete</button></a></th>
+            </tr>
+        @endforeach
         </tbody>
     </table>
+    <input type="submit" value="delete users">
+
+</form>
 </body>
 </html>

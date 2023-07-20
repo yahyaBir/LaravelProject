@@ -52,11 +52,18 @@ class UserController extends Controller
         return redirect('/main-menu');
     }
 
-    public function getUsers()
+    public function getUserList()
     {
         $userCollection = loginModel::all();
-        //$userCollection = DB::table('UserTable')->get();
-
         return view ('listUser', array('userCollection' => $userCollection));
+    }
+
+    public function deleteSLC(Request $request)
+    {
+        $ids=$request->deleteSelect;
+
+        LoginModel::whereIn('id',$ids)->delete();
+
+        return redirect()->route('listUser');
     }
 }

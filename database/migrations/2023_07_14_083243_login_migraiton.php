@@ -19,6 +19,7 @@ class LoginMigraiton extends Migration
             $table->string('UserTitle');
             $table->string('Password');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
