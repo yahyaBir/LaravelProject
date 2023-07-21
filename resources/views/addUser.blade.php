@@ -13,8 +13,10 @@
         @csrf
 
         <h2>Add User Menu</h2>
+
         <label>Username</label><br>
         <input type="text" name="usernameadd" required>
+
         @error('usernameadd')
         <small style="color: red;">{{ $message }}</small>
         @enderror<br><br>
@@ -25,11 +27,13 @@
 
         <label>Password</label><br>
         <input type="password" name="passwordadd" required>
+
         @error('passwordadd')
         <small style="color: red;">{{ $message }}</small>
         @enderror<br><br>
 
         <input type="submit" name="register" value="Register"><br><br>
+
         <a href={{'/main-menu'}}>Back to Main Menu</a>
     </form>
 </body>

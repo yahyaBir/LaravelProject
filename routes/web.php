@@ -26,8 +26,10 @@ Route::get('/list-user', [UserController::class,'listUserView']);
 
 Route::post('/user-added', [UserController::class,'addUser'])->name('userAdded');
 Route::post('/user-deleted', [UserController::class,'deleteSLC'])->name('userDeleted');
+Route::post('/user-delete', [UserController::class,'userEdit'])->name('bos');
 
 Route::get('/list-user', [UserController::class, 'getUserList'])->name('listUser');
+Route::get('/edit-user/{user}', [UserController::class, 'valueToForm'])->name('editUser');
 
 
 
@@ -45,6 +47,7 @@ Route::get('/add-category', [CategoryController::class,'addCategoryView']);
 Route::get('/delete-category', [CategoryController::class,'deleteCategoryView']);
 Route::get('/edit-category', [CategoryController::class,'editCategoryView']);
 Route::get('/list-category', [CategoryController::class,'listCategoryView']);
+Route::post('/title-category', [CategoryController::class,'addCategoryTitle'])->name('addCategory');
 
 
 //ProductContoller rotalari

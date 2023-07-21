@@ -8,18 +8,23 @@
     <title>Add Category Menu</title>
 </head>
 <body>
-    <form action="#" method="POST">
+    <form action={{ route('addCategory')}} method="POST">
         @csrf
 
         <h2>Add Category Menu</h2>
+
         <label>Category Title</label><br>
-        <input type="text" name="category-title" required><br><br>
+        <input type="text" name="categorytitleadd" required>
+
+        @error('category-title')
+        <small style="color: red;">{{ $message }}</small>
+        @enderror<br><br>
 
         <label>Category Description</label><br>
-        <textarea name="category-desc" required> </textarea><br><br>
+        <textarea name="categorydescadd" required> </textarea><br><br>
 
         <label>status</label><br>
-        <input type="text" name="category-status" required><br><br>
+        <input type="text" name="categorystatusadd" required><br><br>
 
         <input type="submit" name="add" value="Add Category"><br><br>
     </form>

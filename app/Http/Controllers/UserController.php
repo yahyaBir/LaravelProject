@@ -66,4 +66,17 @@ class UserController extends Controller
 
         return redirect()->route('listUser');
     }
+
+    public function userEdit(Request $request)
+    {
+        $userdata=$request->editSelect;
+
+        loginModel::WhereIn('Username', $userdata)->all();
+    }
+
+    public function valueToForm(loginModel $user)
+    {
+        return view('editUser', ['user'=>$user]);
+    }
+
 }
