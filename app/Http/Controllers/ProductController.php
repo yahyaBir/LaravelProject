@@ -10,7 +10,6 @@ class ProductController extends Controller
     {
         return view("addProduct");
     }
-
     public function deleteProductView()
     {
         return view("deleteProduct");

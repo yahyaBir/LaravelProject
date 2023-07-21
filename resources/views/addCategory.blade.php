@@ -27,6 +27,8 @@
         <input type="text" name="categorystatusadd" required><br><br>
 
         <input type="submit" name="add" value="Add Category"><br><br>
+
+        <a href={{'/main-menu'}}>Back to Main Menu</a>
     </form>
 </body>
 </html>

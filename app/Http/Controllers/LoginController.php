@@ -11,16 +11,10 @@ use DB;
 
 class LoginController extends Controller
 {
-
-
-    //view cagirma
     public function loginView()
     {
         return view("loginMenu");
     }
-
-
-    //Kullanıcının girdigi bilgileri kontrol etme, kontrole gore yonlendirme
     public function login(Request $request)
     {
         $username = $request->input('username');

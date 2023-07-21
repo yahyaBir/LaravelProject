@@ -15,20 +15,20 @@
         <h2>Add User Menu</h2>
 
         <label>Username</label><br>
-        <input type="text" name="usernameadd" required>
+        <input type="text" name="usernameAdd" required>
 
-        @error('usernameadd')
+        @error('usernameAdd')
         <small style="color: red;">{{ $message }}</small>
         @enderror<br><br>
 
 
         <label>UserTitle</label><br>
-        <input type="text" name="usertitleadd" required><br><br>
+        <input type="text" name="usertitleAdd" required><br><br>
 
         <label>Password</label><br>
-        <input type="password" name="passwordadd" required>
+        <input type="password" name="passwordAdd" required>
 
-        @error('passwordadd')
+        @error('passwordAdd')
         <small style="color: red;">{{ $message }}</small>
         @enderror<br><br>
 
