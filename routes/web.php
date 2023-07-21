@@ -47,6 +47,9 @@ Route::get('/add-category', [CategoryController::class,'addCategoryView']);
 Route::get('/delete-category', [CategoryController::class,'deleteCategoryView']);
 Route::get('/edit-category', [CategoryController::class,'editCategoryView']);
 Route::get('/list-category', [CategoryController::class,'listCategoryView']);
+
+Route::get('/list-category', [CategoryController::class,'getCategoryList'])->name('getCategory');
+
 Route::post('/title-category', [CategoryController::class,'addCategoryTitle'])->name('addCategory');
 
 

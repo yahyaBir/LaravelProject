@@ -8,6 +8,36 @@
     <title>Document</title>
 </head>
 <body>
-<p>list category</p>
+<form action="{{ route ('getCategory') }}" method="post">
+    @csrf
+    <table>
+        <thead>
+        <tr>
+            <th>Category Title<br><br></th>
+            <th>Category Description<br><br></th>
+            <th>Status<br><br></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach($category as $categories)
+            <tr>
+                <th scope="col">{{$categories->CategoryTitle  }}</th>
+                <th scope="col">{{$categories->CategoryDescription  }}</th>
+                <th scope="col">{{$categories->Status }}</th>
+
+                <th>
+                    <a href="{{'/edit-category'}}">
+                        <button type="button" value="">Edit</button>
+                    </a>
+                </th>
+                <th>
+                    <a href="{{'/delete-category'}}">
+                        <button type="button">Delete</button></a>
+                </th>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
+</form>
 </body>
 </html>

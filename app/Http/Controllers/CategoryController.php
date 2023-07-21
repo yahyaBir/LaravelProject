@@ -40,4 +40,9 @@ class CategoryController extends Controller
         ]);
         return redirect('/main-menu');
     }
+    public function getCategoryList()
+    {
+        $category = categoryModel::all();
+        return view ('listCategory', array('category' => $category));
+    }
 }
