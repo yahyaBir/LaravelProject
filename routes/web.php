@@ -32,7 +32,8 @@ Route::get('/list-user', [UserController::class, 'getUserList'])->name('listUser
 
 Route::get('/edit-user/{user}', [UserController::class, 'valueToForm'])->name('editUser');
 
-
+Route::get('/user-edit/{id}', [UserController::class,'editUser'])->name('user-edit');
+Route::post('/user-edit-post/{id}', [UserController::class,'editUserPost'])->name('user-edit-post');
 
 Route::get('/add-category', [CategoryController::class,'addCategoryView']);
 Route::get('/delete-category', [CategoryController::class,'deleteCategoryView']);

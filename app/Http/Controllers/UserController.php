@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use http\Client\Curl\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\loginModel;
@@ -15,27 +14,35 @@ class UserController extends Controller
     {
         return view("addUser");
     }
+
     public function deleteUserView()
     {
         return view("deleteUser");
     }
+
     public function listUserView()
     {
         return view("listUser");
     }
+
     public function editUserView()
     {
         return view("editUser");
     }
-    public function addUser(Request $request)
-    {
+
+    public function addUser(Request $request){
+
         $validated=$request->validate([
-            'usernameAdd'=>'required|alpha_num:ascii|unique:UserTable,Username',
-            'passwordAdd'=>'required|min:6',
+
+            'usernameadd'=>'required|alpha_num:ascii|unique:UserTable,Username',
+
+            'passwordadd'=>'required|min:6',
+
         ]);
-        $username_add=$request->usernameAdd;
-        $usertitle_add=$request->usertitleAdd;
-        $password_add=$request->passwordAdd;
+
+        $username_add=$request->usernameadd;
+        $usertitle_add=$request->usertitleadd;
+        $password_add=$request->passwordadd;
 
         loginModel::create([
             "Username"=>$username_add,
@@ -44,40 +51,66 @@ class UserController extends Controller
         ]);
         return redirect('/main-menu');
     }
+
     public function getUserList()
     {
         $userCollection = loginModel::all();
         return view ('listUser', array('userCollection' => $userCollection));
     }
 
-    public function userEdit(Request $request,$id)
+    public function deleteSLC(Request $request)
     {
-        $username_edit=$request->usernameEdit;
-        $usertitle_edit=$request->usertitleEdit;
-        $password_edit=$request->passwordEdit;
+        $ids=$request->deleteSelect;
 
-        loginModel::whereId($id)->update([
-            "Username"=>$username_edit,
-            "UserTitle"=>$usertitle_edit,
-            "Password"=>$password_edit
-        ]);
+        LoginModel::whereIn('id',$ids)->delete();
+
+        return redirect()->route('listUser');
     }
     public function valueToForm(loginModel $user)
     {
-        return view('editUser', array('user' => $user));
+        return view('editUser', ['user'=>$user]);
     }
-    public function deleteUser(Request $request)
+
+
+
+    public function editUser($id)
     {
-        $ids=$request->deleteUser;
-        LoginModel::whereIn('id',$ids)->delete();
-        return redirect()->route('listUser');
+        $userInf=loginModel::whereId($id)->first();
+        if ($userInf)
+        {
+            return view("editUser",compact('userInf'));
+        }
+        else
+        {
+            return redirect()->route("listUser");
+        }
     }
-    public function deleteSLC(Request $request)
+
+    public function editUserPost(Request $request,$id)
     {
-        $id=$request->deleteSelect;
-        LoginModel::whereIn('id',$id)->delete();
-        return redirect()->route('listUser');
+        $validated=$request->validate([
+            'username_edit'=>'alpha_num|required|unique:UserTable,Username',
+            'password-edit'=>'min:6',
+        ]);
+        $username_edit=$request->username_edit;
+        $usertitle_edit=$request->usertitle_edit;
+        $password_edit=$request->password_edit;
+
+        if (empty($password_edit))
+        {
+            loginModel::whereId($id)->update([
+                "Username"=>$username_edit,
+                "UserTitle"=>$usertitle_edit,
+            ]);
+        }
+        else
+        {
+            loginModel::whereId($id)->update([
+                "Username"=>$username_edit,
+                "UserTitle"=>$usertitle_edit,
+                "Password"=>$password_edit
+            ]);
+        }
+        return redirect('/list-user');
     }
 }
-
-

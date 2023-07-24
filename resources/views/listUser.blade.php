@@ -8,7 +8,7 @@
     <title>User List</title>
 </head>
 <body>
-<form action="{{ route ('userDeleted','deleteUser') }}" method="post">
+<form action="{{ route ('userDeleted') }}" method="post">
     @csrf
     <table>
         <thead>
@@ -16,7 +16,7 @@
                 <th>Delete<br><br></th>
                 <th>Username<br><br></th>
                 <th>UserTitle<br><br></th>
-                <th>Create<br><br></th>
+                <th>Password<br><br></th>
             </tr>
         </thead>
         <tbody>
@@ -27,23 +27,19 @@
                 </td>
                 <th scope="col">{{ $user->Username }}</th>
                 <th scope="col">{{ $user->UserTitle }}</th>
-                <th scope="col">{{ \Carbon\Carbon::parse($user->created_at)->format('d-m-Y') }}</th>
+                <th scope="col">{{ $user->Password }}</th>
 
                 <th>
-                    <a href="{{route ('editUser', ['user'=>$user])}}">Edit</a>
-                </th>
-                <th>
-                    <a href="{{'/delete-user'}}">
-                        <button type="button" name="deleteUser[{{$user->id}}]" value="{{$user->id}}">Delete</button>
+                    <a href="{{route ('user-edit', $user->id) }}">
+                        <button type="button" value="">Edit</button>
                     </a>
                 </th>
+                <th><a href="{{'/delete-user'}}"><button type="button">Delete</button></a></th>
             </tr>
         @endforeach
         </tbody>
     </table>
-    <input type="submit" value="Delete selected users"><br><br>
-
-    <a href={{'/main-menu'}}>Back to Main Menu</a>
+    <input type="submit" value="delete users">
 
 </form>
 </body>

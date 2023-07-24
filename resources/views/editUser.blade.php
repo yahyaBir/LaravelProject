@@ -8,28 +8,24 @@
     <title>User Editing Menu</title>
 </head>
 <body>
-    <form action={{ route('updateUser',[$user]) }} method="POST">
+    <form action="{{route ('user-edit-post', $userInf->id)}}" method="POST">
         @csrf
+
         <h2>Edit User Menu</h2>
 
         <label>Username</label><br>
-        <input type="text" name="usernameEdit" value="{{$user->Username}}">
+        <input type="text" name="username_edit" value="{{$userInf ->Username}}" required><br><br>
 
-        @error('usernameEdit')
-        <small style="color: red;">{{ $message }}</small>
-        @enderror<br><br>
 
         <label>UserTitle</label><br>
-        <input type="text" name="usertitleEdit" value="{{$user->UserTitle}}"><br><br>
+        <input type="text" name="usertitle_edit" value="{{$userInf ->UserTitle}}" required><br><br>
+
 
         <label>Password</label><br>
-        <input type="password" name="passwordEdit">
+        <input type="password" name="password_edit">
 
-        @error('passwordEdit')
-        <small style="color: red;">{{ $message }}</small>
-        @enderror<br><br>
 
-        <button value="{{ route('updateUser') }}">Edit User</button>
+        <input type="submit" name="Edit User" value="Edit User"><br><br>
 
         <a href={{'/main-menu'}}>Back to Main Menu</a>
     </form>
