@@ -21,12 +21,17 @@ Route::get('/add-user', [UserController::class,'addUserView']);
 Route::get('/delete-user', [UserController::class,'deleteUserView']);
 Route::get('/edit-user', [UserController::class,'editUserView']);
 Route::get('/list-user', [UserController::class,'listUserView']);
-Route::post('/user-added', [UserController::class,'addUser'])->name('userAdded');
+Route::post('/user-added', [UserController::class,'addUser'])->name('addUser');
 Route::post('/user-deleted', [UserController::class,'deleteSLC'])->name('userDeleted');
-Route::post('/user-delete', [UserController::class,'userEdit'])->name('bos');
-Route::post('/user-edited', [UserController::class,'userEdited'])->name('user-edited');
+
+Route::post('/user-delete', [UserController::class,'deleteUser'])->name('deleteUser');
+
+Route::post('/user-editedd', [UserController::class,'userEdit'])->name('updateUser');
+
 Route::get('/list-user', [UserController::class, 'getUserList'])->name('listUser');
+
 Route::get('/edit-user/{user}', [UserController::class, 'valueToForm'])->name('editUser');
+
 
 
 Route::get('/add-category', [CategoryController::class,'addCategoryView']);

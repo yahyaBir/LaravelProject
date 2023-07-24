@@ -8,20 +8,19 @@
     <title>User Editing Menu</title>
 </head>
 <body>
-    <form action={{ route('editUser, userEdited',[$user , $id]) }} method="POST">
+    <form action={{ route('updateUser',[$user]) }} method="POST">
         @csrf
-
         <h2>Edit User Menu</h2>
 
         <label>Username</label><br>
-        <input type="text" name="usernameEdit" value="{{$user->Username}}" required>
+        <input type="text" name="usernameEdit" value="{{$user->Username}}">
 
         @error('usernameEdit')
         <small style="color: red;">{{ $message }}</small>
         @enderror<br><br>
 
         <label>UserTitle</label><br>
-        <input type="text" name="usertitleEdit" value="{{$user->UserTitle}}" required><br><br>
+        <input type="text" name="usertitleEdit" value="{{$user->UserTitle}}"><br><br>
 
         <label>Password</label><br>
         <input type="password" name="passwordEdit">
@@ -30,7 +29,7 @@
         <small style="color: red;">{{ $message }}</small>
         @enderror<br><br>
 
-        <input type="submit" name="Edit User" value="Edit User"><br><br>
+        <button value="{{ route('updateUser') }}">Edit User</button>
 
         <a href={{'/main-menu'}}>Back to Main Menu</a>
     </form>

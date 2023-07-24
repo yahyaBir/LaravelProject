@@ -8,7 +8,7 @@
     <title>User List</title>
 </head>
 <body>
-<form action="{{ route ('userDeleted') }}" method="post">
+<form action="{{ route ('userDeleted','deleteUser') }}" method="post">
     @csrf
     <table>
         <thead>
@@ -32,7 +32,11 @@
                 <th>
                     <a href="{{route ('editUser', ['user'=>$user])}}">Edit</a>
                 </th>
-                <th><a href="{{'/delete-user'}}"><button type="button">Delete</button></a></th>
+                <th>
+                    <a href="{{'/delete-user'}}">
+                        <button type="button" name="deleteUser[{{$user->id}}]" value="{{$user->id}}">Delete</button>
+                    </a>
+                </th>
             </tr>
         @endforeach
         </tbody>

@@ -19,4 +19,5 @@ class ProductController extends Controller
     {
         return view("listProduct");
     }
+
 }

@@ -10,6 +10,7 @@
 <body>
 
 
-
+<p>User Deleted
+</p>
 </body>
 </html>

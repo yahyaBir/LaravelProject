@@ -9,7 +9,7 @@
 
 </head>
 <body>
-    <form action={{ route('userAdded') }} method="POST">
+    <form action="{{ route('addUser') }}" method="post">
         @csrf
 
         <h2>Add User Menu</h2>
