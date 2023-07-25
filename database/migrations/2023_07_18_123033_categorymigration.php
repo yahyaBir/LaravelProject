@@ -19,6 +19,7 @@ class Categorymigration extends Migration
             $table->string('CategoryDescription');
             $table->string('Status');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -8,6 +8,12 @@
     <title>Document</title>
 </head>
 <body>
-<p>Delete category</p>
+<div>
+    <h1>Delete User</h1>
+    <p>CategoryTitle : {{ $userInf->CategoryTitle }}</p>
+    <p>Category Description : {{ $userInf->CategoryDescription }}</p>
+    <p>Status : {{ $userInf->status }}</p><br>
+    <a href="{{route( 'category-delete-get', $userInf->id )}}"><button>Delete Category</button></a>
+</div>
 </body>
 </html>

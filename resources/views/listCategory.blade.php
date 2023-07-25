@@ -31,13 +31,14 @@
                     </a>
                 </th>
                 <th>
-                    <a href="{{'/delete-category'}}">
+                    <a href="{{route ('category-delete', $categories->id )}}">
                         <button type="button">Delete</button></a>
                 </th>
             </tr>
         @endforeach
         </tbody>
-    </table>
+    </table><br>
+    <a href={{'/main-menu'}}><input type="button" name="Back to Main Menu" value="Back to Main Menu"></a>
 </form>
 </body>
 </html>

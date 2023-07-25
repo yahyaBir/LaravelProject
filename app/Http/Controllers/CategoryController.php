@@ -74,4 +74,22 @@ class CategoryController extends Controller
         ]);
         return redirect('/list-category-menu');
     }
+
+
+    public function deleteCategory($id)
+    {
+        $userInf = categoryModel::whereId($id)->first();
+        if ($userInf)
+        {
+            return view("deleteCategory",compact('userInf'));
+        }
+        return redirect()->route("getCategory");
+    }
+
+    public function deleteCategoryGet($id)
+    {
+        categoryModel::whereId($id)->delete();
+
+        return redirect()->route("getCategory");
+    }
 }
