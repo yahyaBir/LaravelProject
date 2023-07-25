@@ -20,6 +20,8 @@ class ProductMigration extends Migration
             $table->String('Barcode');
             $table->String('ProductStatus');
             $table->timestamps();
+
+            $table->foreign('ProductCategoryID')->references('id')->on('CategoryTable');
         });
     }
 
