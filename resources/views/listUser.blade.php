@@ -34,12 +34,17 @@
                         <button type="button" value="">Edit</button>
                     </a>
                 </th>
-                <th><a href="{{'/delete-user'}}"><button type="button">Delete</button></a></th>
+                <th>
+                    <a href="{{route ('user-delete', $user->id)}}">
+                        <button type="button">Delete</button>
+                    </a>
+                </th>
             </tr>
         @endforeach
         </tbody>
     </table>
-    <input type="submit" value="delete users">
+    <input type="submit" value="delete users"><br><br>
+    <a href={{'/main-menu'}}><input type="button" name="Back to Main Menu" value="Back to Main Menu"></a>
 
 </form>
 </body>

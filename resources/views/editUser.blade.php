@@ -27,7 +27,7 @@
 
         <input type="submit" name="Edit User" value="Edit User"><br><br>
 
-        <a href={{'/main-menu'}}>Back to Main Menu</a>
+        <a href={{'/list-user'}}>Back to User List</a>
     </form>
 </body>
 </html>

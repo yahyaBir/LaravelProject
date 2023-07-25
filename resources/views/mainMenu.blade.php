@@ -13,9 +13,7 @@
         <h3>Admin User Management</h3>
         <ul>
             <li><a href={{'/list-user'}}>User Listing</a></li>
-            <li><a href={{'/edit-user'}}>User Editing</a></li>
             <li><a href={{'/add-user'}} >Add User</a></li>
-            <li><a href={{'/delete-user'}}>Delete User</a></li>
         </ul>
     </div>
 

@@ -9,8 +9,13 @@
 </head>
 <body>
 
+<div>
+    <h1>Delete User</h1>
+    <p>Username : {{ $userInf->Username }}</p>
+    <p>UserTitle : {{ $userInf->UserTitle }}</p>
+    <p>Password : {{ $userInf->Password }}</p><br>
+    <a href="{{route( 'user-delete-get', $userInf->id )}}"><button>Delete User</button></a>
+</div>
 
-<p>User Deleted
-</p>
 </body>
 </html>

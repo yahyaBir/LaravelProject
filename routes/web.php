@@ -23,17 +23,38 @@ Route::get('/edit-user', [UserController::class,'editUserView']);
 Route::get('/list-user', [UserController::class,'listUserView']);
 Route::post('/user-added', [UserController::class,'addUser'])->name('addUser');
 Route::post('/user-deleted', [UserController::class,'deleteSLC'])->name('userDeleted');
-
-Route::post('/user-delete', [UserController::class,'deleteUser'])->name('deleteUser');
-
-Route::post('/user-editedd', [UserController::class,'userEdit'])->name('updateUser');
-
 Route::get('/list-user', [UserController::class, 'getUserList'])->name('listUser');
-
 Route::get('/edit-user/{user}', [UserController::class, 'valueToForm'])->name('editUser');
+
 
 Route::get('/user-edit/{id}', [UserController::class,'editUser'])->name('user-edit');
 Route::post('/user-edit-post/{id}', [UserController::class,'editUserPost'])->name('user-edit-post');
+
+
+
+
+
+
+
+
+
+
+
+
+Route::get('/user-delete/{id}', [UserController::class,'deleteUser'])->name('user-delete');
+Route::get('/-user-delete-get/{id}', [UserController::class, 'deleteUserGet'])->name('user-delete-get');
+
+
+
+
+
+
+
+
+
+
+
+
 
 Route::get('/add-category', [CategoryController::class,'addCategoryView']);
 Route::get('/delete-category', [CategoryController::class,'deleteCategoryView']);

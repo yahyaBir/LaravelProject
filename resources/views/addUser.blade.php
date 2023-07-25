@@ -34,7 +34,7 @@
 
         <input type="submit" name="register" value="Register"><br><br>
 
-        <a href={{'/main-menu'}}>Back to Main Menu</a>
+        <a href={{'/main-menu'}}><input type="button" name="Back to Main Menu" value="Back to Main Menu"></a>
     </form>
 </body>
 </html>
