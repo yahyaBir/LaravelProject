@@ -31,16 +31,6 @@ Route::get('/user-edit/{id}', [UserController::class,'editUser'])->name('user-ed
 Route::post('/user-edit-post/{id}', [UserController::class,'editUserPost'])->name('user-edit-post');
 
 
-
-
-
-
-
-
-
-
-
-
 Route::get('/user-delete/{id}', [UserController::class,'deleteUser'])->name('user-delete');
 Route::get('/-user-delete-get/{id}', [UserController::class, 'deleteUserGet'])->name('user-delete-get');
 
@@ -60,8 +50,15 @@ Route::get('/add-category', [CategoryController::class,'addCategoryView']);
 Route::get('/delete-category', [CategoryController::class,'deleteCategoryView']);
 Route::get('/edit-category', [CategoryController::class,'editCategoryView']);
 Route::get('/list-category', [CategoryController::class,'listCategoryView']);
-Route::get('/list-category', [CategoryController::class,'getCategoryList'])->name('getCategory');
+
+Route::get('/list-category-menu', [CategoryController::class,'getCategoryList'])->name('getCategory');
 Route::post('/title-category', [CategoryController::class,'addCategoryTitle'])->name('addCategory');
+
+
+Route::get('/category-edit/{id}', [CategoryController::class,'editCategory'])->name('category-edit');
+Route::post('/category-edit-post/{id}', [CategoryController::class,'editCategoryPost'])->name('category-edit-post');
+
+
 
 
 Route::get('/add-product', [ProductController::class,'addProductView']);

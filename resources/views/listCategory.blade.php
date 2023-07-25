@@ -26,7 +26,7 @@
                 <th scope="col">{{$categories->Status }}</th>
 
                 <th>
-                    <a href="{{'/edit-category'}}">
+                    <a href="{{route('category-edit', $categories->id)}}">
                         <button type="button" value="">Edit</button>
                     </a>
                 </th>

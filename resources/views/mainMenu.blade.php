@@ -20,7 +20,7 @@
     <div>
         <h3>Category Management</h3>
         <ul>
-            <li><a href={{'/list-category'}}>Category Listing</a></li>
+            <li><a href={{'/list-category-menu'}}>Category Listing</a></li>
             <li><a href={{'/edit-category'}}>Category Editing</a></li>
             <li><a href={{'/add-category'}}>Add Category</a></li>
             <li><a href={{'/delete-category'}}>Delete Category</a></li>

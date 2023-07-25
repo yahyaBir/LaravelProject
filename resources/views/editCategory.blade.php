@@ -8,23 +8,23 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="" method="POST">
+    <form action="{{route ('category-edit-post', $userInf->id)}}" method="POST">
         @csrf
 
         <h2>Edit Category Menu</h2>
 
         <label>Category Title</label><br>
-        <input type="text" name="categorytitleadd" required>
+        <input type="text" name="categorytitle_edit" value="{{ $userInf ->CategoryTitle }}" required>
 
         @error('category-title')
         <small style="color: red;">{{ $message }}</small>
         @enderror<br><br>
 
         <label>Category Description</label><br>
-        <textarea name="categorydescadd" required> </textarea><br><br>
+        <textarea name="categorydesc_edit"  required>{{ $userInf ->CategoryDescription }}</textarea><br><br>
 
         <label>status</label><br>
-        <input type="text" name="categorystatusadd" required><br><br>
+        <input type="text" name="categorystatus_edit" value="{{ $userInf ->Status }}" required><br><br>
 
         <input type="submit" name="add" value="Edit Category"><br><br>
 
