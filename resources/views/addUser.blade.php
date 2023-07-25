@@ -29,7 +29,7 @@
         <input type="password" name="passwordAdd" required>
 
         @error('passwordAdd')
-        <small style="color: red;">{{ $message }}</small>
+        <small style="color: red;">{{ $message}}</small>
         @enderror<br><br>
 
         <input type="submit" name="register" value="Register"><br><br>

@@ -14,13 +14,11 @@ class CategorySeeder extends Seeder
     public function run()
     {
         \DB::table('CategoryTable')->insert([
-
             [
                 'CategoryTitle'=>"Shoes",
                 'CategoryDescription'=>"Shoes are clothing items that people wear in their daily lives to protect,
                  support, and complement their style. Shoes come in different styles, materials, and purposes.",
                 'Status'=>"active"
-
             ],
             [
                 'CategoryTitle'=>"Pants",

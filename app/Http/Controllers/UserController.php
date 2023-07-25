@@ -14,22 +14,18 @@ class UserController extends Controller
     {
         return view("addUser");
     }
-
     public function deleteUserView()
     {
         return view("deleteUser");
     }
-
     public function listUserView()
     {
         return view("listUser");
     }
-
     public function editUserView()
     {
         return view("editUser");
     }
-
     public function addUser(Request $request)
     {
         $validated = $request->validate([
@@ -47,25 +43,21 @@ class UserController extends Controller
         ]);
         return redirect('/main-menu');
     }
-
     public function getUserList()
     {
         $userCollection = loginModel::all();
         return view('listUser', array('userCollection' => $userCollection));
     }
-
     public function deleteSLC(Request $request)
     {
         $ids = $request->deleteSelect;
         LoginModel::whereIn('id', $ids)->delete();
         return redirect()->route('listUser');
     }
-
     public function valueToForm(loginModel $user)
     {
         return view('editUser', ['user' => $user]);
     }
-
     public function editUser($id)
     {
         $userInf = loginModel::whereId($id)->first();
@@ -75,7 +67,6 @@ class UserController extends Controller
             return redirect()->route("listUser");
         }
     }
-
     public function editUserPost(Request $request, $id)
     {
         $validated = $request->validate([
@@ -100,17 +91,6 @@ class UserController extends Controller
         }
         return redirect('/list-user');
     }
-
-
-
-
-
-
-
-
-
-
-
     public function deleteUser($id)
     {
         $userInf = loginModel::whereId($id)->first();
@@ -120,11 +100,9 @@ class UserController extends Controller
         }
         return redirect()->route("listUser");
     }
-
     public function deleteUserGet($id)
     {
         loginModel::whereId($id)->delete();
         return redirect()->route("listUser");
     }
-
 }

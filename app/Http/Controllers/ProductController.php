@@ -14,10 +14,8 @@ class ProductController extends Controller
     {
         return view("deleteProduct");
     }
-
     public function listProductView()
     {
         return view("listProduct");
     }
-
 }
