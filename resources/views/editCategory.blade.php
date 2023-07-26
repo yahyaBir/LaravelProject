@@ -14,9 +14,9 @@
         <h2>Edit Category Menu</h2>
 
         <label>Category Title</label><br>
-        <input type="text" name="categorytitle_edit" value="{{ $userInf ->CategoryTitle }}" required>
+        <input type="text" name="CategoryTitle" value="{{ $userInf ->CategoryTitle }}" required>
 
-        @error('category-title')
+        @error('CategoryTitle')
         <small style="color: red;">{{ $message }}</small>
         @enderror<br><br>
 
@@ -28,7 +28,7 @@
 
         <input type="submit" name="add" value="Edit Category"><br><br>
 
-        <a href={{'/main-menu'}}>Back to Main Menu</a>
     </form>
+    <a href="{{'/list-category-menu'}}"><button>Back to Category List</button></a>
 </body>
 </html>

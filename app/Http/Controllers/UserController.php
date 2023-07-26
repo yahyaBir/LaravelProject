@@ -29,12 +29,12 @@ class UserController extends Controller
     public function addUser(Request $request)
     {
         $validated = $request->validate([
-            'usernameAdd' => 'required|alpha_num:ascii|unique:UserTable,Username',
-            'passwordAdd' => 'required|min:6',
+            'username' => 'required|alpha_num:ascii|unique:UserTable,Username',
+            'password' => 'required|min:6',
         ]);
-        $username_add = $request->usernameAdd;
+        $username_add = $request->username;
         $usertitle_add = $request->usertitleAdd;
-        $password_add = $request->passwordAdd;
+        $password_add = $request->password;
 
         loginModel::create([
             "Username" => $username_add,
@@ -69,13 +69,16 @@ class UserController extends Controller
     }
     public function editUserPost(Request $request, $id)
     {
-        $validated = $request->validate([
-            'username_edit' => 'alpha_num|required|unique:UserTable,Username',
-            'password_edit' => 'min:6',
-        ]);
-        $username_edit = $request->username_edit;
+        $userInf = loginModel::whereId($id)->first();
+
+        $username_edit = $request->username;
         $usertitle_edit = $request->usertitle_edit;
         $password_edit = $request->password_edit;
+
+        $uniqueRule = Rule::unique('UserTable')->ignore($userInf->id);
+        $this->validate($request, [
+            'username' => ['alpha_num','required', 'string', $uniqueRule],
+        ]);
 
         if (empty($password_edit)) {
             loginModel::whereId($id)->update([
@@ -83,7 +86,11 @@ class UserController extends Controller
                 "UserTitle" => $usertitle_edit,
             ]);
         } else {
+            $validated = $request->validate([
+                'password_edit' => 'min:6',
+            ]);
             loginModel::whereId($id)->update([
+
                 "Username" => $username_edit,
                 "UserTitle" => $usertitle_edit,
                 "Password" => $password_edit

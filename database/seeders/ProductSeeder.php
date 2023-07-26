@@ -19,32 +19,32 @@ class ProductSeeder extends Seeder
 
             [
                 'ProductTitle'=>"Adidas",
-                'ProductCategoryID'=>"",
-                'Barcode'=>"",
+                'ProductCategoryID'=>"1",
+                'Barcode'=>"5234",
                 'ProductStatus'=>"new"
             ],
             [
                 'ProductTitle'=>"Nike",
-                'ProductCategoryID'=>"",
-                'Barcode'=>"",
+                'ProductCategoryID'=>"2",
+                'Barcode'=>"2435",
                 'ProductStatus'=>"new"
             ],
             [
                 'ProductTitle'=>"Puma",
-                'ProductCategoryID'=>"",
-                'Barcode'=>"",
+                'ProductCategoryID'=>"3",
+                'Barcode'=>"5463",
                 'ProductStatus'=>"new"
             ],
             [
                 'ProductTitle'=>"Reebok",
-                'ProductCategoryID'=>"",
-                'Barcode'=>"",
+                'ProductCategoryID'=>"4",
+                'Barcode'=>"5987",
                 'ProductStatus'=>"new"
             ],
             [
                 'ProductTitle'=>"Kinetix",
-                'ProductCategoryID'=>"",
-                'Barcode'=>"",
+                'ProductCategoryID'=>"5",
+                'Barcode'=>"9521",
                 'ProductStatus'=>"new"
             ],
         ]);

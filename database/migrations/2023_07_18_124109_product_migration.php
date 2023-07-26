@@ -16,12 +16,11 @@ class ProductMigration extends Migration
         Schema::create('ProductTable', function (Blueprint $table) {
             $table->id();
             $table->String('ProductTitle');
-            $table->String('ProductCategoryID');
+            $table->String('ProductCategoryID')->nullable();
             $table->String('Barcode');
             $table->String('ProductStatus');
             $table->timestamps();
-
-            $table->foreign('ProductCategoryID')->references('id')->on('CategoryTable');
+            $table->softDeletes();
         });
     }
 

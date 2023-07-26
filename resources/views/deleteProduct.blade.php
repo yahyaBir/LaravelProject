@@ -8,6 +8,14 @@
     <title>Document</title>
 </head>
 <body>
-<p>delete product</p>
+<div>
+    <h1>Delete Product</h1>
+    <p>Product Title : {{ $userInf->ProductTitle }}</p>
+    <p>Product Category ID : {{ $userInf->ProductCategoryId }}</p>
+    <p>Barcode : {{ $userInf->Barcode }}</p>
+    <p>Status : {{ $userInf->ProductStatus }}</p><br>
+    <a href="{{route( 'product-delete-get', $userInf->id )}}"><button>Delete Product</button></a><br><br>
+    <a href="{{'/list-product-menu'}}"><button>Back to Product List</button></a>
+</div>
 </body>
 </html>

@@ -15,9 +15,9 @@
         <h2>Add User Menu</h2>
 
         <label>Username</label><br>
-        <input type="text" name="usernameAdd" required>
+        <input type="text" name="username" required>
 
-        @error('usernameAdd')
+        @error('username')
         <small style="color: red;">{{ $message }}</small>
         @enderror<br><br>
 
@@ -26,9 +26,9 @@
         <input type="text" name="usertitleAdd" required><br><br>
 
         <label>Password</label><br>
-        <input type="password" name="passwordAdd" required>
+        <input type="password" name="password" required>
 
-        @error('passwordAdd')
+        @error('password')
         <small style="color: red;">{{ $message}}</small>
         @enderror<br><br>
 

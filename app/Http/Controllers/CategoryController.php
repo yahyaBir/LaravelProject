@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\categoryModel;
+use App\Models\productModel;
 use Illuminate\Http\Request;
 
 
@@ -28,12 +29,12 @@ class CategoryController extends Controller
     public function addCategoryTitle(Request $request)
     {
         $validated = $request->validate([
-            'category-title' => 'unique:CategoryTable,CategoryTitle',
+            'CategoryTitle' => 'unique:CategoryTable,CategoryTitle',
         ]);
 
-        $categoryTitle=$request->categorytitleadd;
-        $categoryDesc=$request->categorydescadd;
-        $categoryStatus=$request->categorystatusadd;
+        $categoryTitle=$request->CategoryTitle;
+        $categoryDesc=$request->CategoryDescription;
+        $categoryStatus=$request->CategoryStatus;
 
         categoryModel::create([
             "CategoryTitle"=>$categoryTitle,
@@ -47,8 +48,6 @@ class CategoryController extends Controller
         $category = categoryModel::all();
         return view ('listCategory', array('category' => $category));
     }
-
-
     public function editCategory($id)
     {
         $userInf = categoryModel::whereId($id)->first();
@@ -61,9 +60,9 @@ class CategoryController extends Controller
     public function editCategoryPost(Request $request, $id)
     {
         $validated = $request->validate([
-            'categorytitle_edit' => 'unique:CategoryTable,CategoryTitle,'.$id,
+            'CategoryTitle' => 'unique:CategoryTable,CategoryTitle,'.$id,
         ]);
-        $categorytitle_edit = $request->categorytitle_edit;
+        $categorytitle_edit = $request->CategoryTitle;
         $categorydesc_edit = $request->categorydesc_edit;
         $categorystatus_edit = $request->categorystatus_edit;
 
@@ -74,18 +73,19 @@ class CategoryController extends Controller
         ]);
         return redirect('/list-category-menu');
     }
-
-
     public function deleteCategory($id)
     {
         $userInf = categoryModel::whereId($id)->first();
+        productModel::whereId($id)->update([
+            "ProductCategoryID"=> null,
+        ]);
+
         if ($userInf)
         {
             return view("deleteCategory",compact('userInf'));
         }
         return redirect()->route("getCategory");
     }
-
     public function deleteCategoryGet($id)
     {
         categoryModel::whereId($id)->delete();

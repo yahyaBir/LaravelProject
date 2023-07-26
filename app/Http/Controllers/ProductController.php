@@ -40,4 +40,24 @@ class ProductController extends Controller
         ]);
         return redirect('/main-menu');
     }
+    public function listProduct()
+    {
+        $product = productModel::all();
+        return view ("listProduct", array('product' => $product));
+    }
+
+    public function deleteProduct($id)
+    {
+        $userInf = productModel::whereId($id)->first();
+        if ($userInf)
+        {
+            return view("deleteProduct",compact('userInf'));
+        }
+        return redirect()->route("product-list");
+    }
+    public function deleteProductGet($id)
+    {
+        productModel::whereId($id)->delete();
+        return redirect()->route("product-list");
+    }
 }

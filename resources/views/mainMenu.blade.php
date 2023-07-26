@@ -12,7 +12,7 @@
     <div>
         <h3>Admin User Management</h3>
         <ul>
-            <li><a href={{'/list-user'}}>User Listing</a></li>
+            <li><a href={{'/list-user'}}>User List</a></li>
             <li><a href={{'/add-user'}} >Add User</a></li>
         </ul>
     </div>
@@ -20,7 +20,7 @@
     <div>
         <h3>Category Management</h3>
         <ul>
-            <li><a href={{'/list-category-menu'}}>Category Listing</a></li>
+            <li><a href={{'/list-category-menu'}}>Category List</a></li>
             <li><a href={{'/add-category'}}>Add Category</a></li>
         </ul>
     </div>
@@ -28,9 +28,8 @@
     <div>
         <h3>Product Management</h3>
         <ul>
-            <li><a href={{'/list-product'}}>Product Listing</a></li>
+            <li><a href={{'/list-product-menu'}}>Product List</a></li>
             <li><a href={{'/add-product'}}>Add Product</a></li>
-            <li><a href={{'/delete-product'}}>Delete Product</a></li>
         </ul>
     </div>
 

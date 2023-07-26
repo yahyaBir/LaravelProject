@@ -50,13 +50,10 @@ Route::get('/add-category', [CategoryController::class,'addCategoryView']);
 Route::get('/delete-category', [CategoryController::class,'deleteCategoryView']);
 Route::get('/edit-category', [CategoryController::class,'editCategoryView']);
 Route::get('/list-category', [CategoryController::class,'listCategoryView']);
-
 Route::get('/list-category-menu', [CategoryController::class,'getCategoryList'])->name('getCategory');
 Route::post('/title-category', [CategoryController::class,'addCategoryTitle'])->name('addCategory');
-
 Route::get('/category-edit/{id}', [CategoryController::class,'editCategory'])->name('category-edit');
 Route::post('/category-edit-post/{id}', [CategoryController::class,'editCategoryPost'])->name('category-edit-post');
-
 Route::get('/category-delete/{id}', [CategoryController::class,'deleteCategory'])->name('category-delete');
 Route::get('/category-delete-get{id}', [CategoryController::class,'deleteCategoryGet'])->name('category-delete-get');
 
@@ -67,5 +64,11 @@ Route::get('/category-delete-get{id}', [CategoryController::class,'deleteCategor
 Route::get('/add-product', [ProductController::class,'addProductView']);
 Route::get('/delete-product', [ProductController::class,'deleteProductView']);
 Route::get('/list-product', [ProductController::class,'listProductView']);
+
 Route::post('/product-add', [ProductController::class,'addProduct'])->name('category-add');
+
+Route::get('/list-product-menu', [ProductController::class,'listProduct'])->name('product-list');
+
+Route::get('/product-delete/{id}', [ProductController::class,'deleteProduct'])->name('product-delete');
+Route::get('/product-delete-get/{id}', [ProductController::class, 'deleteProductGet'])->name('product-delete-get');
 

@@ -14,7 +14,11 @@
         <h2>Edit User Menu</h2>
 
         <label>Username</label><br>
-        <input type="text" name="username_edit" value="{{$userInf ->Username}}" required><br><br>
+        <input type="text" name="username" value="{{$userInf ->Username}}" required>
+
+        @error('username')
+        <small style="color: red;">{{ $message }}</small>
+        @enderror<br><br>
 
 
         <label>UserTitle</label><br>
@@ -24,10 +28,14 @@
         <label>Password</label><br>
         <input type="password" name="password_edit">
 
+        @error('password_edit')
+        <small style="color: red;">{{ $message }}</small>
+        @enderror<br><br>
+
 
         <input type="submit" name="Edit User" value="Edit User"><br><br>
 
-        <a href={{'/list-user'}}>Back to User List</a>
     </form>
+    <a href="{{'/list-user'}}"><button>Back to User List</button></a>
 </body>
 </html>
