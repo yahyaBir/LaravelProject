@@ -14,18 +14,6 @@ class UserController extends Controller
     {
         return view("addUser");
     }
-    public function deleteUserView()
-    {
-        return view("deleteUser");
-    }
-    public function listUserView()
-    {
-        return view("listUser");
-    }
-    public function editUserView()
-    {
-        return view("editUser");
-    }
     public function addUser(Request $request)
     {
         $validated = $request->validate([
@@ -52,11 +40,7 @@ class UserController extends Controller
     {
         $ids = $request->deleteSelect;
         LoginModel::whereIn('id', $ids)->delete();
-        return redirect()->route('listUser');
-    }
-    public function valueToForm(loginModel $user)
-    {
-        return view('editUser', ['user' => $user]);
+        return redirect()->route('user-list');
     }
     public function editUser($id)
     {
@@ -64,7 +48,7 @@ class UserController extends Controller
         if ($userInf) {
             return view("editUser", compact('userInf'));
         } else {
-            return redirect()->route("listUser");
+            return redirect()->route("user-list");
         }
     }
     public function editUserPost(Request $request, $id)
@@ -96,7 +80,7 @@ class UserController extends Controller
                 "Password" => $password_edit
             ]);
         }
-        return redirect('/list-user');
+        return redirect('/user-list');
     }
     public function deleteUser($id)
     {
@@ -105,11 +89,11 @@ class UserController extends Controller
         {
             return view("deleteUser",compact('userInf'));
         }
-        return redirect()->route("listUser");
+        return redirect()->route("user-list");
     }
     public function deleteUserGet($id)
     {
         loginModel::whereId($id)->delete();
-        return redirect()->route("listUser");
+        return redirect()->route("user-list");
     }
 }

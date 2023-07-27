@@ -8,7 +8,7 @@
     <title>User List</title>
 </head>
 <body>
-<form action="{{ route ('userDeleted') }}" method="post">
+<form action="{{ route ('user-delete-select') }}" method="post">
     @csrf
     <table>
         <thead>
@@ -30,7 +30,7 @@
                 <th scope="col">{{ $user->Password }}</th>
 
                 <th>
-                    <a href="{{route ('user-edit', $user->id) }}">
+                    <a href="{{route ('product-edit', $user->id) }}">
                         <button type="button" value="">Edit</button>
                     </a>
                 </th>

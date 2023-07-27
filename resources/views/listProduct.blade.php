@@ -8,7 +8,7 @@
     <title>Document</title>
     <style>
         th {
-            padding-left: 30px;
+            padding-left: 20px;
         }
     </style>
 </head>
@@ -18,8 +18,8 @@
     <table>
         <thead>
         <tr>
+            <th>Product Category ID<br><br></th>
             <th>Product Title<br><br></th>
-            <th>Product Category<br><br></th>
             <th>Product Barcode<br><br></th>
             <th>Product Status<br><br></th>
             <th>Edit<br><br></th>
@@ -29,12 +29,12 @@
         <tbody>
         @foreach($product as $products)
             <tr>
-                <th scope="col">{{ $products->ProductTitle }}</th>
                 <th scope="col">{{ $products->ProductCategoryID }}</th>
+                <th scope="col">{{ $products->ProductTitle }}</th>
                 <th scope="col">{{ $products->Barcode }}</th>
                 <th scope="col">{{ $products->ProductStatus }}</th>
                 <th>
-                    <a href="">
+                    <a href="{{route ('product-edit', $products->id) }}">
                         <button type="button" value="">Edit</button>
                     </a>
                 </th>

@@ -12,16 +12,16 @@
     <div>
         <h3>Admin User Management</h3>
         <ul>
-            <li><a href={{'/list-user'}}>User List</a></li>
-            <li><a href={{'/add-user'}} >Add User</a></li>
+            <li><a href={{'/user-list'}}>User List</a></li>
+            <li><a href={{'/user-add-view'}} >Add User</a></li>
         </ul>
     </div>
 
     <div>
         <h3>Category Management</h3>
         <ul>
-            <li><a href={{'/list-category-menu'}}>Category List</a></li>
-            <li><a href={{'/add-category'}}>Add Category</a></li>
+            <li><a href={{'/category-list'}}>Category List</a></li>
+            <li><a href={{'/category-add-view'}}>Add Category</a></li>
         </ul>
     </div>
 

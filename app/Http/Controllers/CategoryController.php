@@ -54,7 +54,7 @@ class CategoryController extends Controller
         if ($userInf) {
             return view("editCategory", compact('userInf'));
         } else {
-            return redirect()->route("getCategory");
+            return redirect()->route("category-edit");
         }
     }
     public function editCategoryPost(Request $request, $id)
@@ -71,25 +71,24 @@ class CategoryController extends Controller
             "CategoryDescription" => $categorydesc_edit,
             "Status" => $categorystatus_edit
         ]);
-        return redirect('/list-category-menu');
+        return redirect('/category-list');
     }
     public function deleteCategory($id)
     {
         $userInf = categoryModel::whereId($id)->first();
-        productModel::whereId($id)->update([
+        productModel::whereIn("ProductCategoryID",$userInf)->update([
             "ProductCategoryID"=> null,
         ]);
-
         if ($userInf)
         {
             return view("deleteCategory",compact('userInf'));
         }
-        return redirect()->route("getCategory");
+        return redirect()->route("category-list");
     }
     public function deleteCategoryGet($id)
     {
         categoryModel::whereId($id)->delete();
 
-        return redirect()->route("getCategory");
+        return redirect()->route("category-list");
     }
 }

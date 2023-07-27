@@ -8,21 +8,25 @@
     <title>Document</title>
 </head>
 <body>
-<form action="{{ route ('getCategory') }}" method="post">
+<form action="{{ route ('category-list') }}" method="post">
     @csrf
     <table>
         <thead>
         <tr>
+            <th>Category ID<br><br></th>
             <th>Category Title<br><br></th>
             <th>Category Description<br><br></th>
             <th>Status<br><br></th>
+            <th>Edit<br><br></th>
+            <th>Delete<br><br></th>
         </tr>
         </thead>
         <tbody>
         @foreach($category as $categories)
             <tr>
-                <th scope="col">{{$categories->CategoryTitle  }}</th>
-                <th scope="col">{{$categories->CategoryDescription  }}</th>
+                <th scope="col">{{$categories->id}}</th>
+                <th scope="col">{{$categories->CategoryTitle}}</th>
+                <th scope="col">{{$categories->CategoryDescription}}</th>
                 <th scope="col">{{$categories->Status }}</th>
 
                 <th>

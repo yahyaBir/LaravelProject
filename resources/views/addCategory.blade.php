@@ -8,7 +8,7 @@
     <title>Add Category Menu</title>
 </head>
 <body>
-    <form action={{ route('addCategory')}} method="POST">
+    <form action={{ route('category-added')}} method="POST">
         @csrf
 
         <h2>Add Category Menu</h2>
@@ -21,7 +21,7 @@
         @enderror<br><br>
 
         <label>Category Description</label><br>
-        <textarea name="CategoryDescription" required> </textarea><br><br>
+        <textarea name="CategoryDescription" required></textarea><br><br>
 
         <label>status</label><br>
         <input type="text" name="CategoryStatus" required><br><br>

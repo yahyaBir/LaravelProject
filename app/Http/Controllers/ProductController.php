@@ -5,32 +5,26 @@ namespace App\Http\Controllers;
 use App\Models\loginModel;
 use App\Models\productModel;
 use Illuminate\Http\Request;
+use App\Models\categoryModel;
 
 class ProductController extends Controller
 {
     public function addProductView()
     {
-        return view("addProduct");
-    }
-    public function deleteProductView()
-    {
-        return view("deleteProduct");
-    }
-    public function listProductView()
-    {
-        return view("listProduct");
+        $categoryId = CategoryModel::all();
+        return view("addProduct", compact('categoryId'));
     }
     public function addProduct(Request $request)
     {
-        $validated = $request->validate([
-            'product_title' => 'required',
-            'product_barcode' =>'required',
-            'product_status' =>'required'
-        ]);
-        $product_title = $request->product_title;
-        $product_category = $request->product_category;
-        $product_barcode = $request->product_barcode;
-        $product_status = $request->product_status;
+        //$validated = $request->validate([
+          //  'ProductTitle' => 'required',
+            //'ProductCategoryId' =>'required',
+            //'ProductStatus' =>'required'
+        //]);
+        $product_title = $request->ProductTitle;
+        $product_category = $request->ProductCategory;
+        $product_barcode = $request->ProductBarcode;
+        $product_status = $request->ProductStatus;
 
         productModel::create([
             "ProductTitle" => $product_title,
@@ -45,6 +39,46 @@ class ProductController extends Controller
         $product = productModel::all();
         return view ("listProduct", array('product' => $product));
     }
+    public function editProduct($id)
+    {
+        $categoryId = CategoryModel::get();
+        $userInf = productModel::whereId($id)->first();
+        if ($userInf) {
+            return view("editProduct", compact('userInf','categoryId'));
+        } else {
+            return redirect()->route("product-list");
+        }
+    }
+    public function editProductPost(Request $request, $id)
+    {
+        $validated = $request->validate([
+            'ProductTitle' => 'alpha_num:ascii:ProductTable,ProductTitle,'.$id,
+        ]);
+        $producttitle_edit = $request->ProductTitle;
+        $productcategory_edit = $request->ProductCategory;
+        $productbarcode_edit = $request->ProductBarcode;
+        $productstatus_edit = $request->ProductStatus;
+
+        productModel::whereId($id)->update([
+            "ProductTitle" => $producttitle_edit,
+            "ProductCategoryId" => $productcategory_edit,
+            "Barcode" => $productbarcode_edit,
+            "ProductStatus" => $productstatus_edit,
+        ]);
+        return redirect('list-product-menu');
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function deleteProduct($id)
     {
@@ -59,5 +93,10 @@ class ProductController extends Controller
     {
         productModel::whereId($id)->delete();
         return redirect()->route("product-list");
+
     }
 }
+
+
+
+

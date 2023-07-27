@@ -8,22 +8,19 @@
     <title>Admin Login Menu</title>
 </head>
 <body>
-    @if($errors->any())
-        <ul>
-        @foreach($errors->all() as $hatalar)
-            <li>{{$hatalar}}</li>
-        @endforeach
-        </ul>
+    @if(session('error'))
+        <div style="color: red">{{ session('error') }}</div><br><br>
     @endif
 
-    <form action="{{ route('output') }}" method="POST">
+
+    <form action="{{ route('login-post') }}" method="POST">
         @csrf
 
         <label>Username</label><br>
-        <input type="text" name="username"><br><br>
+        <input type="text" name="username" required><br><br>
 
         <label>Password</label><br>
-        <input type="password" name="password"><br><br>
+        <input type="password" name="password" required><br><br>
 
         <input type="submit" name="login" value="Log In">
 
