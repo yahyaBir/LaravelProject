@@ -13,6 +13,8 @@ Route::post('/login', [LoginController::class,'login'])->name('login-post');
 Route::get('/main-menu', [MenuController::class,'mainView'])->name('main-view');
 
 
+
+
 Route::get('/user-add-view', [UserController::class,'addUserView']);
 Route::post('/user-add-post', [UserController::class,'addUser'])->name('user-add');
 Route::post('/user-delete-select', [UserController::class,'deleteSLC'])->name('user-delete-select');

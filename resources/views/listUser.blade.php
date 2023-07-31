@@ -16,7 +16,6 @@
                 <th>Delete<br><br></th>
                 <th>Username<br><br></th>
                 <th>UserTitle<br><br></th>
-                <th>Password<br><br></th>
             </tr>
         </thead>
         <tbody>
@@ -27,10 +26,9 @@
                 </td>
                 <th scope="col">{{ $user->Username }}</th>
                 <th scope="col">{{ $user->UserTitle }}</th>
-                <th scope="col">{{ $user->Password }}</th>
 
                 <th>
-                    <a href="{{route ('product-edit', $user->id) }}">
+                    <a href="{{route ('user-edit', $user->id) }}">
                         <button type="button" value="">Edit</button>
                     </a>
                 </th>

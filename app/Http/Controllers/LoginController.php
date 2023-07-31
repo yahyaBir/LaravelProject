@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\loginModel;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
-
+use Illuminate\Support\Facades\Auth;
 
 
 class LoginController extends Controller
@@ -21,7 +21,9 @@ class LoginController extends Controller
 
         $user = loginModel::where('Username', $username)->first();
 
+
         if ($user && $user->Password === $password) {
+            //Auth::attempt(['Username'=>$username, 'Password'=>$password]);
             return redirect('/main-menu');
         }
         else {
