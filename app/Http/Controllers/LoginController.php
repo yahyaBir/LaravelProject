@@ -20,7 +20,7 @@ class LoginController extends Controller
         $username = $request->input('username');
         $password = $request->input('password');
 
-        $user = User::where('username', $username)->first();
+         $user= User::where('username', $username)->first();
 
         if (Auth::attempt(['username'=>$username, 'password'=>$password])) {
             return redirect()->route('main-view');
