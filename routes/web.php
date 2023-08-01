@@ -10,9 +10,7 @@ use App\Http\Controllers\ProductController;
 
 
 Route::get('/', [LoginController::class,'loginView'])->name('login');
-//Route::post('/login', [LoginController::class,'login'])->name('login-post');
-
-
+Route::post('/login', [LoginController::class,'login'])->name('login-post');
 Route::/*middleware('user_auth')->*/get('/main-menu', [MenuController::class,'mainView'])->name('main-view');
 
 

@@ -29,7 +29,7 @@ class UserController extends Controller
         User::create([
             "username" => $username_add,
             "usertitle" => $usertitle_add,
-            "password" => Hash::make($password_add)
+            "password" =>/*Hash::make*/($password_add)
         ]);
         return redirect('/main-menu');
     }
