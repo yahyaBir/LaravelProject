@@ -8,11 +8,12 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 
 
-Route::get('/', [LoginController::class,'loginView']);
-Route::post('/login', [LoginController::class,'login'])->name('login-post');
-Route::get('/main-menu', [MenuController::class,'mainView'])->name('main-view');
+
+Route::get('/', [LoginController::class,'loginView'])->name('login');
+//Route::post('/login', [LoginController::class,'login'])->name('login-post');
 
 
+Route::/*middleware('user_auth')->*/get('/main-menu', [MenuController::class,'mainView'])->name('main-view');
 
 
 Route::get('/user-add-view', [UserController::class,'addUserView']);

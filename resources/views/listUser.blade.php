@@ -24,8 +24,8 @@
                 <td>
                     <input type="checkbox" name="deleteSelect[{{$user->id}}]" value="{{$user->id}}">
                 </td>
-                <th scope="col">{{ $user->Username }}</th>
-                <th scope="col">{{ $user->UserTitle }}</th>
+                <th scope="col">{{ $user->username }}</th>
+                <th scope="col">{{ $user->usertitle }}</th>
 
                 <th>
                     <a href="{{route ('user-edit', $user->id) }}">

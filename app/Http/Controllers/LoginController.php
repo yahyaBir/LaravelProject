@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\loginModel;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\Authenticatable;
+use Illuminate\Support\Facades\Hash;
 
 
 class LoginController extends Controller
@@ -19,14 +21,14 @@ class LoginController extends Controller
         $username = $request->input('username');
         $password = $request->input('password');
 
-        $user = loginModel::where('Username', $username)->first();
+        $user = User::where('username', $username)->first();
 
+        if ($user && $user->password === $password) {
+            //Auth::attempt(['username'=>$username, 'password'=>$password]);
+            //Auth::login($user);
+            return redirect()->route('main-view');
+        } else {
 
-        if ($user && $user->Password === $password) {
-            //Auth::attempt(['Username'=>$username, 'Password'=>$password]);
-            return redirect('/main-menu');
-        }
-        else {
             return redirect()->back()->with('error', 'Username or Password wrong.');
         }
     }

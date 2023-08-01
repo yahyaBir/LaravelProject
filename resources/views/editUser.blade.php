@@ -14,7 +14,7 @@
         <h2>Edit User Menu</h2>
 
         <label>Username</label><br>
-        <input type="text" name="username" value="{{$userInf ->Username}}" required>
+        <input type="text" name="username" value="{{$userInf ->username}}" required>
 
         @error('username')
         <small style="color: red;">{{ $message }}</small>
@@ -22,7 +22,7 @@
 
 
         <label>UserTitle</label><br>
-        <input type="text" name="usertitle_edit" value="{{$userInf ->UserTitle}}" required><br><br>
+        <input type="text" name="usertitle_edit" value="{{$userInf ->usertitle}}" required><br><br>
 
 
         <label>Password</label><br>
