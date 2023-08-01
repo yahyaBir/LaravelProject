@@ -13,21 +13,21 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        \DB::table('UserTable')->insert([
+        \DB::table('usertable')->insert([
             [
-                'Username'=>"yahya",
-                'UserTitle'=>"Yahya BİR",
-                'Password'=>"123456",
+                'username'=>"yahya",
+                'usertitle'=>"Yahya BİR",
+                'password'=>"123456",
             ],
             [
-                'Username'=>"ahmet",
-                'UserTitle'=>"Ahmet Can DERİCİOĞLU",
-                'Password'=>"1234567",
+                'username'=>"ahmet",
+                'usertitle'=>"Ahmet Can DERİCİOĞLU",
+                'password'=>"1234567",
             ],
             [
-                'Username'=>"serra",
-                'UserTitle'=>"Serra ÇAPRAZ",
-                'Password'=>"123456789",
+                'username'=>"serra",
+                'usertitle'=>"Serra ÇAPRAZ",
+                'password'=>"123456789",
             ],
         ]);
     }

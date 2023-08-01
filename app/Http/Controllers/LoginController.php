@@ -26,7 +26,7 @@ class LoginController extends Controller
         if ($user && $user->password === $password) {
             //Auth::attempt(['username'=>$username, 'password'=>$password]);
             //Auth::login($user);
-            return redirect()->route('main-view');
+            return view('mainMenu');
         } else {
 
             return redirect()->back()->with('error', 'Username or Password wrong.');

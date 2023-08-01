@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
-    //use HasFactory;
-    //use SoftDeletes;
+    use HasFactory;
+    use SoftDeletes;
     protected $table='usertable';
     protected $fillable = ['username','usertitle','password','created_at','updated_at'];
 }

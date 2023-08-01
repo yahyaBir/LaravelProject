@@ -10,8 +10,8 @@ use App\Http\Controllers\ProductController;
 
 
 Route::get('/', [LoginController::class,'loginView'])->name('login');
-Route::post('/login', [LoginController::class,'login'])->name('login-post');
-Route::/*middleware('user_auth')->*/get('/main-menu', [MenuController::class,'mainView'])->name('main-view');
+Route::post('/main-menu', [LoginController::class,'login'])->name('login-post');
+Route::middleware('auth')->get('/login', [MenuController::class,'mainView'])->name('main-view');
 
 
 Route::get('/user-add-view', [UserController::class,'addUserView']);
