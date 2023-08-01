@@ -82,7 +82,7 @@ class UserController extends Controller
                 "password" => $password_edit
             ]);
         }
-        return redirect('/user-list');
+        return redirect('/user/list');
     }
     public function deleteUser($id)
     {

@@ -30,7 +30,7 @@
     <input type="text" name="ProductStatus" value="{{ $userInf ->ProductStatus }}" required><br><br>
 
     <input type="submit" name="add" value="Edit Product"><br><br>
-    <a href={{'/list-product-menu'}}><input type="button" name="Back to Product List" value="Back to Product List"></a>
+    <a href={{'/product/list'}}><input type="button" name="Back to Product List" value="Back to Product List"></a>
 </form>
 </body>
 </html>

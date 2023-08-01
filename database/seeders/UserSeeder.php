@@ -1,7 +1,6 @@
 <?php
 
 namespace Database\Seeders;
-
 use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
@@ -17,17 +16,17 @@ class UserSeeder extends Seeder
             [
                 'username'=>"yahya",
                 'usertitle'=>"Yahya BİR",
-                'password'=>"123456",
+                'password'=>bcrypt("123456"),
             ],
             [
                 'username'=>"ahmet",
                 'usertitle'=>"Ahmet Can DERİCİOĞLU",
-                'password'=>"1234567",
+                'password'=>bcrypt("1234567"),
             ],
             [
                 'username'=>"serra",
                 'usertitle'=>"Serra ÇAPRAZ",
-                'password'=>"123456789",
+                'password'=>bcrypt("12345678"),
             ],
         ]);
     }

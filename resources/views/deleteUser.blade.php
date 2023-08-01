@@ -13,9 +13,8 @@
     <h1>Delete User</h1>
     <p>Username : {{ $userInf->username }}</p>
     <p>UserTitle : {{ $userInf->usertitle }}</p>
-    <p>Password : {{ $userInf->password }}</p><br>
     <a href="{{route( 'user-delete-get', $userInf->id )}}"><button>Delete User</button></a><br><br>
-    <a href="{{'/user-list'}}"><button>Back to User List</button></a>
+    <a href="{{'/user/list'}}"><button>Back to User List</button></a>
 </div>
 
 </body>

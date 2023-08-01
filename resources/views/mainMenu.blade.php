@@ -12,26 +12,27 @@
     <div>
         <h3>Admin User Management</h3>
         <ul>
-            <li><a href={{'/user-list'}}>User List</a></li>
-            <li><a href={{'/user-add-view'}} >Add User</a></li>
+            <li><a href={{'/user/list'}}>User List</a></li>
+            <li><a href={{'/user/add-view'}} >Add User</a></li>
         </ul>
     </div>
 
     <div>
         <h3>Category Management</h3>
         <ul>
-            <li><a href={{'/category-list'}}>Category List</a></li>
-            <li><a href={{'/category-add-view'}}>Add Category</a></li>
+            <li><a href={{'/category/list'}}>Category List</a></li>
+            <li><a href={{'/category/add-view'}}>Add Category</a></li>
         </ul>
     </div>
 
     <div>
         <h3>Product Management</h3>
         <ul>
-            <li><a href={{'/list-product-menu'}}>Product List</a></li>
-            <li><a href={{'/add-product'}}>Add Product</a></li>
+            <li><a href={{'product/list'}}>Product List</a></li>
+            <li><a href={{'product/add'}}>Add Product</a></li>
         </ul>
     </div>
 
+    <a href={{route('logout')}}><input type="button" name="logout" value="logout"></a>
 </body>
 </html>

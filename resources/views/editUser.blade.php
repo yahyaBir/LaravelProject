@@ -36,6 +36,6 @@
         <input type="submit" name="Edit User" value="Edit User"><br><br>
 
     </form>
-    <a href="{{'/user-list'}}"><button>Back to User List</button></a>
+    <a href="{{'/user/list'}}"><button>Back to User List</button></a>
 </body>
 </html>

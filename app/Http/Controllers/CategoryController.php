@@ -71,7 +71,7 @@ class CategoryController extends Controller
             "CategoryDescription" => $categorydesc_edit,
             "Status" => $categorystatus_edit
         ]);
-        return redirect('/category-list');
+        return redirect('/category/list');
     }
     public function deleteCategory($id)
     {

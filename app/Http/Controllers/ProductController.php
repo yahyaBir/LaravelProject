@@ -65,7 +65,7 @@ class ProductController extends Controller
             "Barcode" => $productbarcode_edit,
             "ProductStatus" => $productstatus_edit,
         ]);
-        return redirect('list-product-menu');
+        return redirect('product/list');
     }
 
 

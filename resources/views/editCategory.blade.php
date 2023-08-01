@@ -29,6 +29,6 @@
         <input type="submit" name="add" value="Edit Category"><br><br>
 
     </form>
-    <a href="{{'/category-list'}}"><button>Back to Category List</button></a>
+    <a href="{{'/category/list'}}"><button>Back to Category List</button></a>
 </body>
 </html>

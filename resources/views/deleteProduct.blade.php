@@ -15,7 +15,7 @@
     <p>Barcode : {{ $userInf->Barcode }}</p>
     <p>Status : {{ $userInf->ProductStatus }}</p><br>
     <a href="{{route( 'product-delete-get', $userInf->id )}}"><button>Delete Product</button></a><br><br>
-    <a href="{{'/list-product-menu'}}"><button>Back to Product List</button></a>
+    <a href="{{'/product/list'}}"><button>Back to Product List</button></a>
 </div>
 </body>
 </html>

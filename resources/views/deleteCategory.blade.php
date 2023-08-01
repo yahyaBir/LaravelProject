@@ -14,7 +14,7 @@
     <p>Category Description : {{ $userInf->CategoryDescription }}</p>
     <p>Status : {{ $userInf->Status }}</p><br>
     <a href="{{route( 'category-delete-get', $userInf->id )}}"><button>Delete Category</button></a><br><br>
-    <a href={{'/category-list'}}><input type="button" name="Back to Main Menu" value="Back to Category List"></a>
+    <a href={{'/category/list'}}><input type="button" name="Back to Main Menu" value="Back to Category List"></a>
 </div>
 </body>
 </html>
