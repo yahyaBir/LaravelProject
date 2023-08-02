@@ -1,49 +1,43 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>User List</title>
-</head>
-<body>
-<form action="{{ route ('user-delete-select') }}" method="post">
-    @csrf
-    <table>
-        <thead>
-            <tr>
-                <th>Delete<br><br></th>
-                <th>Username<br><br></th>
-                <th>UserTitle<br><br></th>
-            </tr>
-        </thead>
-        <tbody>
-        @foreach($userCollection as $user)
-            <tr>
-                <td>
-                    <input type="checkbox" name="deleteSelect[{{$user->id}}]" value="{{$user->id}}">
-                </td>
-                <th scope="col">{{ $user->username }}</th>
-                <th scope="col">{{ $user->usertitle }}</th>
+@extends('layouts.app')
+@section('section')
 
-                <th>
-                    <a href="{{route ('user-edit', $user->id) }}">
-                        <button type="button" value="">Edit</button>
-                    </a>
-                </th>
-                <th>
-                    <a href="{{route ('user-delete', $user->id)}}">
-                        <button type="button">Delete</button>
-                    </a>
-                </th>
+    <form action="{{ route ('user-delete-select') }}" method="post">
+        @csrf
+        <table  class="table table-striped" style="width: 1300px; margin: auto; margin-top: 80px; ">
+            <thead>
+            <tr>
+                <th>Delete Multiple<br></th>
+                <th>Username<br></th>
+                <th>UserTitle<br></th>
+                <th>Edit<br></th>
+                <th>Delete<br></th>
             </tr>
-        @endforeach
-        </tbody>
-    </table>
-    <input type="submit" value="delete users"><br><br>
-    <a href={{'/main-menu'}}><input type="button" name="Back to Main Menu" value="Back to Main Menu"></a>
+            </thead>
+            <tbody>
+            @foreach($userCollection as $user)
+                <tr>
+                    <td>
+                        <input style="height: 15px; width: 15px" type="checkbox" name="deleteSelect[{{$user->id}}]" value="{{$user->id}}">
+                    </td>
+                    <th scope="col">{{ $user->username }}</th>
+                    <th scope="col">{{ $user->usertitle }}</th>
 
-</form>
-</body>
-</html>
+                    <th>
+                        <a href="{{route ('user-edit', $user->id) }}">
+                            <button type="button" class="btn btn-primary" style="padding: 5px 10px" value="">Edit</button>
+                        </a>
+                    </th>
+                    <th>
+                        <a href="{{route ('user-delete', $user->id)}}">
+                            <button type="button" style="padding: 5px 10px" class="btn btn-warning">Delete</button>
+                        </a>
+                    </th>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+        <div class="d-grid gap-2 d-sm-flex" style="margin-left: 120px; margin-top: 10px">
+            <input type="submit" class="btn btn-primary" value="delete users"><br><br>
+        </div>
+    </form>
+@endsection

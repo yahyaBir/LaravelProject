@@ -28,9 +28,11 @@ class CategoryController extends Controller
     }
     public function addCategoryTitle(Request $request)
     {
-        $validated = $request->validate([
-            'CategoryTitle' => 'unique:CategoryTable,CategoryTitle',
-        ]);
+        //$validated = $request->validate([
+          //  'CategoryTitle' => 'required|unique:CategoryTable,CategoryTitle',
+            //'CategoryDescription'=> 'required',
+           // 'Status'=> 'required',
+        //]);
 
         $categoryTitle=$request->CategoryTitle;
         $categoryDesc=$request->CategoryDescription;

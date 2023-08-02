@@ -1,29 +1,16 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-        th {
-            padding-left: 20px;
-        }
-    </style>
-</head>
-<body>
+@extends('layouts.app')
+@section('section')
 <form action="{{route('product-list')}}" method="post">
     @csrf
-    <table>
+    <table class="table table-striped" style="width: 1300px; margin: auto; margin-top: 80px;">
         <thead>
         <tr>
-            <th>Product Category ID<br><br></th>
-            <th>Product Title<br><br></th>
-            <th>Product Barcode<br><br></th>
-            <th>Product Status<br><br></th>
-            <th>Edit<br><br></th>
-            <th>Delete<br><br></th>
+            <th>Product Category ID<br></th>
+            <th>Product Title<br></th>
+            <th>Product Barcode<br></th>
+            <th>Product Status<br></th>
+            <th>Edit<br></th>
+            <th>Delete<br></th>
         </tr>
         </thead>
         <tbody>
@@ -35,19 +22,17 @@
                 <th scope="col">{{ $products->ProductStatus }}</th>
                 <th>
                     <a href="{{route ('product-edit', $products->id) }}">
-                        <button type="button" value="">Edit</button>
+                        <button type="button" class="btn btn-primary" style="padding: 5px 10px" >Edit</button>
                     </a>
                 </th>
                 <th>
                     <a href="{{route ('product-delete', $products->id )}}">
-                        <button type="button">Delete</button>
+                        <button type="button" style="padding: 5px 10px" class="btn btn-warning">Delete</button>
                     </a>
                 </th>
             </tr>
         @endforeach
         </tbody>
-    </table><br>
-    <a href={{'/main-menu'}}><input type="button" name="Back to Main Menu" value="Back to Main Menu"></a>
+    </table>
 </form>
-</body>
-</html>
+@endsection

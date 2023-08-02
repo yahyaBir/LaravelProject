@@ -1,40 +1,40 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Add User Menu</title>
+@extends('layouts.app')
+@section('title') Admin Panel | Homepage @endsection
+@section('section')
+<section class="vh-100" style="background-color: white">
+    <div class="container py-5 h-100" style="height:1500px">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5" >
+                <div class="card shadow-2-strong" style="border-radius: 1rem; background: #f0f0f0;">
+                    <div class="card-body p-5 text-center">
 
-</head>
-<body>
-    <form action="{{ route('user-add') }}" method="post">
-        @csrf
+                        <h3 class="mb-5">Add User</h3>
 
-        <h2>Add User Menu</h2>
+                        <form action="{{ route('user-add') }}" method="POST">
 
-        <label>Username</label><br>
-        <input type="text" name="username" required>
+                            @csrf
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="typeEmailX-2">Username</label>
+                                <input name="username" type="text" id="typeEmailX-2" class="form-control form-control-lg" />
+                            </div>
 
-        @error('username')
-        <small style="color: red;">{{ $message }}</small>
-        @enderror<br><br>
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="typeEmailX-2">UserTitle</label><br>
+                                <input type="text" name="usertitle" id="typePasswordX-2" class="form-control form-control-lg">
+                            </div>
 
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="typePasswordX-2">Password</label>
+                                <input name="password" type="password" id="typePasswordX-2" class="form-control form-control-lg" />
+                            </div>
 
-        <label>UserTitle</label><br>
-        <input type="text" name="usertitleAdd" required><br><br>
-
-        <label>Password</label><br>
-        <input type="password" name="password" required>
-
-        @error('password')
-        <small style="color: red;">{{ $message}}</small>
-        @enderror<br><br>
-
-        <input type="submit" name="register" value="Register"><br><br>
-
-        <a href={{'/main-menu'}}><input type="button" name="Back to Main Menu" value="Back to Main Menu"></a>
-    </form>
-</body>
-</html>
+                            <button name="login" class="btn btn-primary btn-lg btn-block" type="submit">Add User</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="{{ asset('front/js/bootstrap.min.js')}}"></script>
+@endsection

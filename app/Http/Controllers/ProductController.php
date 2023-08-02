@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\loginModel;
 use App\Models\productModel;
 use Illuminate\Http\Request;
 use App\Models\categoryModel;
@@ -16,11 +15,12 @@ class ProductController extends Controller
     }
     public function addProduct(Request $request)
     {
-        //$validated = $request->validate([
-          //  'ProductTitle' => 'required',
-            //'ProductCategoryId' =>'required',
+       // $validated = $request->validate([
+
+         //   'ProductTitle' => 'required',
+           // 'Barcode' =>'required',
             //'ProductStatus' =>'required'
-        //]);
+        //);
         $product_title = $request->ProductTitle;
         $product_category = $request->ProductCategory;
         $product_barcode = $request->ProductBarcode;

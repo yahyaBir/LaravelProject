@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Support\Facades\Hash;
+use function PHPUnit\Framework\isEmpty;
 
 
 class LoginController extends Controller
@@ -24,8 +25,8 @@ class LoginController extends Controller
 
         if (Auth::attempt(['username'=>$username, 'password'=>$password])) {
             return redirect()->route('main-view');
-        } else {
-            return redirect()->back()->with('error', 'Username or Password wrong.');
+        } else{
+            return redirect()->back()->with('usernameError', 'Username or Password wrong.');
         }
     }
     public function logout()

@@ -7,6 +7,11 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 
+Route::get('/boostrapdeneme', function (){return view('index');});
+Route::get('/user/management', function (){return view('managements.userManagement');});
+Route::get('/category/management', function (){return view('managements.categoryManagement');});
+Route::get('/product/management', function (){return view('managements.productManagement');});
+
 
 Route::get('/', [LoginController::class,'loginView'])->name('login');
 Route::post('/', [LoginController::class,'login'])->name('login-post');

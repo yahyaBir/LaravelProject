@@ -1,34 +1,40 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Add Category Menu</title>
-</head>
-<body>
-    <form action={{ route('category-added')}} method="POST">
-        @csrf
+@extends('layouts.app')
+@section('title') Admin Panel | Homepage @endsection
+@section('section')
+    <section class="vh-100" style="background-color: white">
+        <div class="container py-5 h-100" style="height:1500px">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5" >
+                    <div class="card shadow-2-strong" style="border-radius: 1rem; background: #f0f0f0;">
+                        <div class="card-body p-5 text-center">
 
-        <h2>Add Category Menu</h2>
+                            <h3 class="mb-5">Add Category</h3>
 
-        <label>Category Title</label><br>
-        <input type="text" name="CategoryTitle" required>
+                            <form action="{{ route('category-added') }}" method="POST">
 
-        @error('CategoryTitle')
-        <small style="color: red;">{{ $message }}</small>
-        @enderror<br><br>
+                                @csrf
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="typeEmailX-2">Category Title</label>
+                                    <input name="CategoryTitle" type="text" id="typeEmailX-2" class="form-control form-control-lg" />
+                                </div>
 
-        <label>Category Description</label><br>
-        <textarea name="CategoryDescription" required></textarea><br><br>
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="typeEmailX-2">UserTitle</label><br>
+                                    <textarea type="text" name="CategoryDescription" id="typePasswordX-2" class="form-control form-control-lg"></textarea>
+                                </div>
 
-        <label>status</label><br>
-        <input type="text" name="CategoryStatus" required><br><br>
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="typePasswordX-2">Status</label>
+                                    <input name="CategoryStatus" type="text" id="typePasswordX-2" class="form-control form-control-lg" />
+                                </div>
 
-        <input type="submit" name="add" value="Add Category"><br><br>
-
-        <a href={{'/main-menu'}}><input type="button" name="Back to Main Menu" value="Back to Main Menu"></a>
-    </form>
-</body>
-</html>
+                                <button name="add" class="btn btn-primary btn-lg btn-block" type="submit">Add Category</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="{{ asset('front/js/bootstrap.min.js')}}"></script>
+@endsection

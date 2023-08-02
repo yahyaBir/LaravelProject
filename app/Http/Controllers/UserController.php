@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
+use function PHPUnit\Framework\isEmpty;
 
 class UserController extends Controller
 {
@@ -19,17 +20,17 @@ class UserController extends Controller
     {
         $validated = $request->validate([
             'username' => 'required|alpha_num:ascii|unique:usertable,username',
+            'usertitle' => 'required',
             'password' => 'required|min:6',
         ]);
         $username_add = $request->username;
-        $usertitle_add = $request->usertitleAdd;
+        $usertitle_add = $request->usertitle;
         $password_add = $request->password;
 
-        //$hashedPassword = Hash::make($password_add);
         User::create([
             "username" => $username_add,
             "usertitle" => $usertitle_add,
-            "password" =>/*Hash::make*/($password_add)
+            "password" =>Hash::make($password_add)
         ]);
         return redirect('/main-menu');
     }

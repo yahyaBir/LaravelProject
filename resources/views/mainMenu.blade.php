@@ -1,38 +1,9 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Main Menu</title>
-</head>
-<body>
-
-    <div>
-        <h3>Admin User Management</h3>
-        <ul>
-            <li><a href={{'/user/list'}}>User List</a></li>
-            <li><a href={{'/user/add-view'}} >Add User</a></li>
-        </ul>
+@extends('layouts.app')
+@section('title') Admin Panel | Homepage @endsection
+@section('links')
+    <div class="px-4 py-5 my-5 text-center">
+        <h1 class="display-5 fw-bold text-body-emphasis" style="padding: 80px">Homepage</h1>
     </div>
+@endsection
 
-    <div>
-        <h3>Category Management</h3>
-        <ul>
-            <li><a href={{'/category/list'}}>Category List</a></li>
-            <li><a href={{'/category/add-view'}}>Add Category</a></li>
-        </ul>
-    </div>
 
-    <div>
-        <h3>Product Management</h3>
-        <ul>
-            <li><a href={{'product/list'}}>Product List</a></li>
-            <li><a href={{'product/add'}}>Add Product</a></li>
-        </ul>
-    </div>
-
-    <a href={{route('logout')}}><input type="button" name="logout" value="logout"></a>
-</body>
-</html>
