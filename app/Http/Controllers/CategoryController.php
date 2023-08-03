@@ -28,11 +28,11 @@ class CategoryController extends Controller
     }
     public function addCategoryTitle(Request $request)
     {
-        //$validated = $request->validate([
-          //  'CategoryTitle' => 'required|unique:CategoryTable,CategoryTitle',
-            //'CategoryDescription'=> 'required',
-           // 'Status'=> 'required',
-        //]);
+        $validated = $request->validate([
+           'CategoryTitle' => 'required|unique:CategoryTable',
+           'CategoryDescription'=> 'required',
+           'CategoryStatus'=> 'required',
+        ]);
 
         $categoryTitle=$request->CategoryTitle;
         $categoryDesc=$request->CategoryDescription;
@@ -43,7 +43,10 @@ class CategoryController extends Controller
             "CategoryDescription"=>$categoryDesc,
             "Status"=>$categoryStatus
         ]);
-        return redirect('/main-menu');
+        if ($categoryTitle == '') {
+            return redirect()->back()->withErrors('');
+        }
+        return redirect('/category/list');
     }
     public function getCategoryList()
     {
@@ -62,7 +65,7 @@ class CategoryController extends Controller
     public function editCategoryPost(Request $request, $id)
     {
         $validated = $request->validate([
-            'CategoryTitle' => 'unique:CategoryTable,CategoryTitle,'.$id,
+            'CategoryTitle' => 'required|unique:CategoryTable,CategoryTitle,'.$id,
         ]);
         $categorytitle_edit = $request->CategoryTitle;
         $categorydesc_edit = $request->categorydesc_edit;
@@ -73,6 +76,10 @@ class CategoryController extends Controller
             "CategoryDescription" => $categorydesc_edit,
             "Status" => $categorystatus_edit
         ]);
+        if ($categorytitle_edit == '') {
+            return redirect()->back()->withErrors('');
+        }
+
         return redirect('/category/list');
     }
     public function deleteCategory($id)

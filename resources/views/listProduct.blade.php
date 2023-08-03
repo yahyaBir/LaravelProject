@@ -27,7 +27,7 @@
                 </th>
                 <th>
                     <a href="{{route ('product-delete', $products->id )}}">
-                        <button type="button" style="padding: 5px 10px" class="btn btn-warning">Delete</button>
+                        <button type="button" style="padding: 5px 10px" class="btn btn-danger">Delete</button>
                     </a>
                 </th>
             </tr>

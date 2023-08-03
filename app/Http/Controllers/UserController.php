@@ -19,7 +19,7 @@ class UserController extends Controller
     public function addUser(Request $request)
     {
         $validated = $request->validate([
-            'username' => 'required|alpha_num:ascii|unique:usertable,username',
+            'username' => 'required|alpha_num:ascii|unique:usertable',
             'usertitle' => 'required',
             'password' => 'required|min:6',
         ]);
@@ -32,7 +32,12 @@ class UserController extends Controller
             "usertitle" => $usertitle_add,
             "password" =>Hash::make($password_add)
         ]);
-        return redirect('/main-menu');
+
+        if ($username_add == '') {
+            return redirect()->back()->withErrors('');
+        }
+
+        return redirect('/user/list');
     }
     public function getUserList()
     {
@@ -80,8 +85,11 @@ class UserController extends Controller
 
                 "username" => $username_edit,
                 "usertitle" => $usertitle_edit,
-                "password" => $password_edit
+                "password" => Hash::make($password_edit)
             ]);
+            if ($username_edit == '') {
+                return redirect()->back()->withErrors('');
+            }
         }
         return redirect('/user/list');
     }

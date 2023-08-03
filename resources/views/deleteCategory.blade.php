@@ -1,20 +1,28 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-<div>
-    <h1>Delete User</h1>
-    <p>CategoryTitle : {{ $userInf->CategoryTitle }}</p>
-    <p>Category Description : {{ $userInf->CategoryDescription }}</p>
-    <p>Status : {{ $userInf->Status }}</p><br>
-    <a href="{{route( 'category-delete-get', $userInf->id )}}"><button>Delete Category</button></a><br><br>
-    <a href={{'/category/list'}}><input type="button" name="Back to Main Menu" value="Back to Category List"></a>
-</div>
-</body>
-</html>
+@extends('layouts.app')
+@section('title') Admin Panel | Homepage @endsection
+@section('section')
+    <section class="vh-100" style="background-color: white">
+        <div class="container py-5 h-100" style="height:1000px">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5" >
+                    <div class="card shadow-2-strong" style="border-radius: 1rem; background: #f0f0f0; width: 1000px">
+                        <div class="card-body p-5 text-center">
+                            <div class="px-4 py-5 my-5 text-center">
+                                <h1 class="display-5 fw-bold">Delete User</h1>
+                                <div class="col-lg-6 mx-auto">
+                                    <p class="lead mb-4">Are you sure you want to delete this Category?</p>
+                                    <p class="lead mb-4">Category Title : {{ $userInf->CategoryTitle }}</p>
+                                    <p class="lead mb-4">Category Description : {{ $userInf->CategoryDescription }}</p>
+                                    <p class="lead mb-4">Status : {{ $userInf->Status }}</p>
+                                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                                        <a href="{{route( 'category-delete-get', $userInf->id )}}"><button type="button" class="btn btn-primary btn-lg px-4 gap-3">Delete Category</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+@endsection

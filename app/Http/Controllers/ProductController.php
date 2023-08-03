@@ -15,12 +15,12 @@ class ProductController extends Controller
     }
     public function addProduct(Request $request)
     {
-       // $validated = $request->validate([
+        $validated = $request->validate([
 
-         //   'ProductTitle' => 'required',
-           // 'Barcode' =>'required',
-            //'ProductStatus' =>'required'
-        //);
+            'ProductTitle' => 'required|unique:ProductTable',
+            'ProductBarcode' =>'required',
+            'ProductStatus' =>'required'
+        ]);
         $product_title = $request->ProductTitle;
         $product_category = $request->ProductCategory;
         $product_barcode = $request->ProductBarcode;
@@ -32,7 +32,11 @@ class ProductController extends Controller
             "Barcode" => $product_barcode,
             "ProductStatus" => $product_status
         ]);
-        return redirect('/main-menu');
+        if ($product_title == '') {
+            return redirect()->back()->withErrors('');
+        }
+
+        return redirect('/product/list');
     }
     public function listProduct()
     {
@@ -43,8 +47,9 @@ class ProductController extends Controller
     {
         $categoryId = CategoryModel::get();
         $userInf = productModel::whereId($id)->first();
+        $category = CategoryModel::whereId($userInf->ProductCategoryID)->first();
         if ($userInf) {
-            return view("editProduct", compact('userInf','categoryId'));
+            return view("editProduct", ['userInf' => $userInf, 'categoryId'=> $categoryId, 'categoryTitle'=> $category]);
         } else {
             return redirect()->route("product-list");
         }
@@ -52,7 +57,7 @@ class ProductController extends Controller
     public function editProductPost(Request $request, $id)
     {
         $validated = $request->validate([
-            'ProductTitle' => 'alpha_num:ascii:ProductTable,ProductTitle,'.$id,
+            'ProductTitle' => 'required|alpha_num:ascii:ProductTable,'.$id,
         ]);
         $producttitle_edit = $request->ProductTitle;
         $productcategory_edit = $request->ProductCategory;
@@ -65,6 +70,9 @@ class ProductController extends Controller
             "Barcode" => $productbarcode_edit,
             "ProductStatus" => $productstatus_edit,
         ]);
+        if ($producttitle_edit == '') {
+            return redirect()->back()->withErrors('');
+        }
         return redirect('product/list');
     }
 

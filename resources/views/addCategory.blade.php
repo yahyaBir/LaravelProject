@@ -9,7 +9,9 @@
                         <div class="card-body p-5 text-center">
 
                             <h3 class="mb-5">Add Category</h3>
-
+                            @if($errors)
+                                <b style="color: red"><p>{{ $errors->first() }}</p></b>
+                            @endif
                             <form action="{{ route('category-added') }}" method="POST">
 
                                 @csrf
@@ -19,7 +21,7 @@
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <label class="form-label" for="typeEmailX-2">UserTitle</label><br>
+                                    <label class="form-label" for="typeEmailX-2">Category Description</label><br>
                                     <textarea type="text" name="CategoryDescription" id="typePasswordX-2" class="form-control form-control-lg"></textarea>
                                 </div>
 

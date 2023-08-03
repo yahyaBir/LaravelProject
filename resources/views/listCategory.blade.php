@@ -28,7 +28,7 @@
                 </th>
                 <th>
                     <a href="{{route ('category-delete', $categories->id )}}">
-                        <button type="button" style="padding: 5px 10px" class="btn btn-warning">Delete</button></a>
+                        <button type="button" style="padding: 5px 10px" class="btn btn-danger">Delete</button></a>
                 </th>
             </tr>
         @endforeach

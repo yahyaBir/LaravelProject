@@ -9,8 +9,11 @@
                     <div class="card-body p-5 text-center">
 
                         <h3 class="mb-5">Add User</h3>
-
+                        @if($errors)
+                            <b style="color: red"><p>{{ $errors->first() }}</p></b>
+                        @endif
                         <form action="{{ route('user-add') }}" method="POST">
+
 
                             @csrf
                             <div class="form-outline mb-4">

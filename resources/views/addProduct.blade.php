@@ -9,6 +9,9 @@
                         <div class="card-body p-5 text-center">
 
                             <h3 class="mb-5">Add Product</h3>
+                            @if($errors)
+                                <b style="color: red"><p>{{ $errors->first() }}</p></b>
+                            @endif
 
                             <form action="{{ route('product-add') }}" method="POST">
                                 @csrf
@@ -20,9 +23,9 @@
 
                                 <div class="form-outline mb-4">
                                     <label class="form-label">Product Category ID</label><br>
-                                    <select name="ProductCategory" id="typePasswordX-2" class="form-control form-control-lg>
+                                    <select name="ProductCategory" id="typePasswordX-2" class="form-control form-control-lg">
                                         @foreach($categoryId as $categoryIds)
-                                            <option value="{{$categoryIds->id}}">{{$categoryIds->id}}</option>
+                                            <option value="{{$categoryIds->id}}">{{$categoryIds->CategoryTitle}}</option>
                                         @endforeach
                                     </select>
                                 </div>

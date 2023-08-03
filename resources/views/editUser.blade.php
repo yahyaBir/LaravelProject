@@ -1,41 +1,41 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>User Editing Menu</title>
-</head>
-<body>
-    <form action="{{route ('user-edit-post', $userInf->id)}}" method="POST">
-        @csrf
+@extends('layouts.app')
+@section('title') Admin Panel | Homepage @endsection
+@section('section')
+    <section class="vh-100" style="background-color: white">
+        <div class="container py-5 h-100" style="height:1500px">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5" >
+                    <div class="card shadow-2-strong" style="border-radius: 1rem; background: #f0f0f0;">
+                        <div class="card-body p-5 text-center">
 
-        <h2>Edit User Menu</h2>
+                            <h3 class="mb-5">Edit User</h3>
+                            @if($errors)
+                                <b style="color: red"><p>{{ $errors->first() }}</p></b>
+                            @endif
+                            <form action="{{route ('user-edit-post', $userInf->id)}}" method="POST">
 
-        <label>Username</label><br>
-        <input type="text" name="username" value="{{$userInf ->username}}" required>
+                                @csrf
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="typeEmailX-2">Username</label>
+                                    <input name="username" type="text" id="typeEmailX-2" class="form-control form-control-lg" value="{{$userInf ->username}}" />
+                                </div>
 
-        @error('username')
-        <small style="color: red;">{{ $message }}</small>
-        @enderror<br><br>
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="typeEmailX-2">UserTitle</label><br>
+                                    <input type="text" name="usertitle_edit" id="typePasswordX-2" class="form-control form-control-lg" value="{{$userInf ->usertitle}}">
+                                </div>
 
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="typePasswordX-2">Password</label>
+                                    <input name="password_edit" type="password" id="typePasswordX-2" class="form-control form-control-lg" />
+                                </div>
 
-        <label>UserTitle</label><br>
-        <input type="text" name="usertitle_edit" value="{{$userInf ->usertitle}}" required><br><br>
-
-
-        <label>Password</label><br>
-        <input type="password" name="password_edit">
-
-        @error('password_edit')
-        <small style="color: red;">{{ $message }}</small>
-        @enderror<br><br>
-
-
-        <input type="submit" name="Edit User" value="Edit User"><br><br>
-
-    </form>
-    <a href="{{'/user/list'}}"><button>Back to User List</button></a>
-</body>
-</html>
+                                <button name="login" class="btn btn-primary btn-lg btn-block" type="submit">Edit User</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+@endsection
